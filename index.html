@@ -1,358 +1,667 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Doughnut Forge | Privacy Policy</title>
-  <!-- Tailwind CSS for zero-config styling -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: #F5F8FA;
+      color: #334155;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+                   "Noto Sans", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "PingFang SC",
+                   "Microsoft YaHei", "Microsoft JhengHei", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: #1DA1F2; color: #fff; }
+
+    .card {
+      width: 100%;
+      max-width: 42rem;
+      background: #fff;
+      padding: 40px;
+      border: 2px solid #e2e8f0;
+      border-radius: 24px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    @media (max-width: 600px) { .card { padding: 24px; } }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .logo {
+      width: 56px;
+      height: 56px;
+      flex: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1DA1F2;
+      background: rgba(29, 161, 242, 0.1);
+      border: 2px solid rgba(29, 161, 242, 0.2);
+      border-radius: 16px;
+    }
+    select {
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      color: #334155;
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 8px 12px;
+      cursor: pointer;
+      outline: none;
+    }
+    select:focus { border-color: #1DA1F2; }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+    }
+    .eff {
+      margin: 0 0 32px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #94a3b8;
+    }
+
+    .body { font-size: 16px; }
+    .body p { margin: 0; }
+    .body strong { color: #1e293b; }
+    .body h2 {
+      margin: 32px 0 12px;
+      font-size: 20px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .publisher {
+      margin: 32px 0 0;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 14px;
+      font-weight: 700;
+      color: #334155;
+      background: #f1f5f9;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    code.k1 { color: #F91880; }
+    code.k2 { color: #1DA1F2; }
+
+    a { color: #1DA1F2; font-weight: 700; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
 </head>
 
-<body
-  class="bg-[#F5F8FA] text-slate-700 antialiased min-h-screen flex items-center justify-center p-6 selection:bg-[#1DA1F2] selection:text-white">
+<body>
+  <main class="card">
 
-  <div class="max-w-2xl w-full bg-white p-10 md:p-12 rounded-[24px] shadow-sm border-2 border-slate-200">
-
-    <!-- Top Bar: Icon + Language Picker -->
-    <div class="flex items-center justify-between mb-8">
-      <div
-        class="w-14 h-14 bg-[#1DA1F2]/10 text-[#1DA1F2] rounded-2xl flex items-center justify-center border-2 border-[#1DA1F2]/20">
+    <div class="topbar">
+      <div class="logo" aria-hidden="true">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
         </svg>
       </div>
 
-      <!-- Fully Mapped Language Dropdown -->
-      <select id="langSelect" onchange="setLanguage(this.value)"
-        class="bg-slate-50 border-2 border-slate-200 rounded-xl px-3 py-2 text-sm font-bold text-slate-700 outline-none focus:border-[#1DA1F2] transition-colors cursor-pointer">
-        <optgroup label="Europe">
-          <option value="en">🇬🇧 English (UK)</option>
-          <option value="fr">🇫🇷 Français</option>
-          <option value="de">🇩🇪 Deutsch</option>
-          <option value="es">🇪🇸 Español (ES)</option>
-          <option value="it">🇮🇹 Italiano</option>
-          <option value="nl">🇳🇱 Nederlands</option>
-          <option value="sv">🇸🇪 Svenska</option>
-          <option value="da">🇩🇰 Dansk</option>
-          <option value="fi">🇫🇮 Suomi</option>
-          <option value="no">🇳🇴 Norsk</option>
-          <option value="pl">🇵🇱 Polski</option>
-          <option value="cs">🇨🇿 Čeština</option>
-          <option value="hu">🇭🇺 Magyar</option>
-          <option value="ro">🇷🇴 Română</option>
-          <option value="ru">🇷🇺 Русский</option>
-          <option value="el">🇬🇷 Ελληνικά</option>
-          <option value="uk">🇺🇦 Українська</option>
-        </optgroup>
-        <optgroup label="Americas">
-          <option value="en-US">🇺🇸 English (US)</option>
-          <option value="es-MX">🇲🇽 Español (MX)</option>
-          <option value="pt-BR">🇧🇷 Português (BR)</option>
-        </optgroup>
-        <optgroup label="Middle East & Africa">
-          <option value="tr">🇹🇷 Türkçe</option>
-        </optgroup>
-        <optgroup label="Asia-Pacific">
-          <option value="ja">🇯🇵 日本語</option>
-          <option value="zh-CN">🇨🇳 简体中文</option>
-          <option value="zh-TW">🇹🇼 繁體中文</option>
-          <option value="ko">🇰🇷 한국어</option>
-          <option value="hi">🇮🇳 हिन्दी</option>
-          <option value="id">🇮🇩 Bahasa Indonesia</option>
-          <option value="ms">🇲🇾 Bahasa Melayu</option>
-          <option value="th">🇹🇭 ไทย</option>
-          <option value="vi">🇻🇳 Tiếng Việt</option>
-        </optgroup>
-      </select>
+      <div>
+        <label for="langSelect" class="sr-only">Language</label>
+        <select id="langSelect" onchange="setLanguage(this.value)">
+          <optgroup label="Europe">
+            <option value="en">🇬🇧 English (UK)</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="es">🇪🇸 Español (ES)</option>
+            <option value="it">🇮🇹 Italiano</option>
+            <option value="nl">🇳🇱 Nederlands</option>
+            <option value="sv">🇸🇪 Svenska</option>
+            <option value="da">🇩🇰 Dansk</option>
+            <option value="fi">🇫🇮 Suomi</option>
+            <option value="no">🇳🇴 Norsk</option>
+            <option value="pl">🇵🇱 Polski</option>
+            <option value="cs">🇨🇿 Čeština</option>
+            <option value="hu">🇭🇺 Magyar</option>
+            <option value="ro">🇷🇴 Română</option>
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="el">🇬🇷 Ελληνικά</option>
+            <option value="uk">🇺🇦 Українська</option>
+          </optgroup>
+          <optgroup label="Americas">
+            <option value="en-US">🇺🇸 English (US)</option>
+            <option value="es-MX">🇲🇽 Español (MX)</option>
+            <option value="pt-BR">🇧🇷 Português (BR)</option>
+          </optgroup>
+          <optgroup label="Middle East &amp; Africa">
+            <option value="tr">🇹🇷 Türkçe</option>
+          </optgroup>
+          <optgroup label="Asia-Pacific">
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="zh-CN">🇨🇳 简体中文</option>
+            <option value="zh-TW">🇹🇼 繁體中文</option>
+            <option value="ko">🇰🇷 한국어</option>
+            <option value="hi">🇮🇳 हिन्दी</option>
+            <option value="id">🇮🇩 Bahasa Indonesia</option>
+            <option value="ms">🇲🇾 Bahasa Melayu</option>
+            <option value="th">🇹🇭 ไทย</option>
+            <option value="vi">🇻🇳 Tiếng Việt</option>
+          </optgroup>
+        </select>
+      </div>
     </div>
 
-    <h1 data-i18n="title" class="text-3xl font-extrabold tracking-tight text-slate-900 mb-2">Privacy Policy</h1>
-    <p data-i18n="effectiveDate" class="text-sm font-bold tracking-widest text-slate-400 uppercase mb-8">Effective Date:
-      September 2026</p>
+    <h1 data-i18n="title">Privacy Policy</h1>
+    <p class="eff" data-i18n="effectiveDate">Effective Date: October 2026</p>
 
-    <div class="space-y-6 text-[16px] leading-relaxed">
-      <p data-i18n="hero">
-        <strong>Doughnut Forge is built on a zero-knowledge, local-first architecture.</strong>
-        This means we do not collect, transmit, store, or have any access to your data.
-      </p>
+    <div class="body">
+      <p data-i18n="hero"><strong>Doughnut Forge is built on a zero-knowledge, local-first architecture.</strong> This means we do not collect, transmit, store, or have any access to your data, except information you choose to send us directly (see Section 3).</p>
 
-      <h2 data-i18n="sec1Title" class="text-xl font-extrabold text-slate-900 mt-8 mb-3">1. Data Storage & Deletion</h2>
-      <p data-i18n="sec1Desc">
-        All cryptographic keys, <code
-          class="bg-slate-100 text-[#F91880] px-2 py-0.5 rounded font-bold text-sm">.vltc2</code> identities, and <code
-          class="bg-slate-100 text-[#1DA1F2] px-2 py-0.5 rounded font-bold text-sm">.vlt2</code> files generated by
-        Doughnut Forge are stored exclusively on your local machine. No information ever leaves your device unless you explicitly
-        export and share a file yourself. Because no data is collected or transmitted, no user data is retained on any servers. You can completely delete your local identities and files by uninstalling the application from your Mac.
-      </p>
+      <h2 data-i18n="sec1Title">1. Data Storage &amp; Deletion</h2>
+      <p data-i18n="sec1Desc">All cryptographic keys, <code class="k1">.vltc2</code> identities, and <code class="k2">.vlt2</code> files generated by Doughnut Forge are stored exclusively on your local device. No information leaves your device unless you explicitly export and share a file yourself. Uninstalling the app removes the software, but it does not remove files you have saved elsewhere on your device, or keys held in your system's credential manager (such as the macOS Keychain or Windows Credential Manager). You can delete these manually.</p>
 
-      <h2 data-i18n="sec2Title" class="text-xl font-extrabold text-slate-900 mt-8 mb-3">2. Analytics and Telemetry</h2>
-      <p data-i18n="sec2Desc">
-        Doughnut Forge contains no tracking scripts, analytics engines, or crash reporters. We do not monitor your usage or
-        behavior.
-      </p>
+      <h2 data-i18n="sec2Title">2. Analytics and Telemetry</h2>
+      <p data-i18n="sec2Desc">Doughnut Forge contains no built-in tracking scripts, analytics engines, or crash reporters. If you download the app from the Apple App Store or Microsoft Store, Apple or Microsoft may provide us with aggregated statistics such as download counts and crash statistics. These reports do not contain personally identifiable information. You can control the sharing of diagnostic data in your device settings.</p>
 
-      <h2 data-i18n="sec3Title" class="text-xl font-extrabold text-slate-900 mt-8 mb-3">3. Support & Contact</h2>
-      <p data-i18n="sec3Desc">
-        If you have questions or wish to report an issue, please open a ticket directly on our <a
-          href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub
-          Issues</a> tracker. You can also contact Darren Corbett directly at darrentcorbett@gmail.com.
-      </p>
+      <h2 data-i18n="sec3Title">3. Support &amp; Contact</h2>
+      <p data-i18n="sec3Desc">For questions or to report a technical issue, please open a ticket on our <a href="https://github.com/Darren-Corbett/forge-privacy/issues">GitHub Issues</a> tracker. GitHub is a public platform governed by its own privacy policy, so never include sensitive or decrypted data in issue reports. For privacy-specific enquiries, please use our <a href="https://tally.so/r/yPWQO4">Privacy Contact Form</a>. Information you submit through that form is processed by Tally (tally.so), which we use to receive your message, and is used only to respond to your enquiry.</p>
 
-      <p data-i18n="publisherInfo" class="text-xs text-slate-400 mt-8">
-        Published by Darren Corbett.
-      </p>
+      <h2 data-i18n="sec4Title">4. Changes to this Policy</h2>
+      <p data-i18n="sec4Desc">We may update this policy from time to time. Any changes will be published on this page with an updated Effective Date.</p>
+
+      <p class="publisher" data-i18n="publisherInfo">Published by Darren Corbett.</p>
     </div>
-  </div>
 
-  <!-- The Localization Engine -->
+  </main>
+
   <script>
+    // Link tokens are used in translated strings so the markup stays consistent across languages.
+    const LINKS = {
+      gh: '<a href="https://github.com/Darren-Corbett/forge-privacy/issues">',
+      tally: '<a href="https://tally.so/r/yPWQO4">'
+    };
+
+    function render(text) {
+      return text
+        .replace(/\[\[gh\]\]/g, LINKS.gh)
+        .replace(/\[\[tally\]\]/g, LINKS.tally)
+        .replace(/\[\[\/(gh|tally)\]\]/g, '</a>');
+    }
+
     const enStrings = {
-      title: "Privacy Policy",
-      effectiveDate: "Effective Date: September 2026",
-      hero: "<strong>Doughnut Forge is built on a zero-knowledge, local-first architecture.</strong> This means we do not collect, transmit, store, or have any access to your data.",
-      sec1Title: "1. Data Storage & Deletion",
-      sec1Desc: 'All cryptographic keys, <code class="bg-slate-100 text-[#F91880] px-2 py-0.5 rounded font-bold text-sm">.vltc2</code> identities, and <code class="bg-slate-100 text-[#1DA1F2] px-2 py-0.5 rounded font-bold text-sm">.vlt2</code> files generated by Doughnut Forge are stored exclusively on your local machine. No information ever leaves your device unless you explicitly export and share a file yourself. Because no data is collected or transmitted, no user data is retained on any servers. You can completely delete your local identities and files by uninstalling the application from your Mac.',
-      sec2Title: "2. Analytics and Telemetry",
-      sec2Desc: "Doughnut Forge contains no tracking scripts, analytics engines, or crash reporters. We do not monitor your usage or behavior.",
-      sec3Title: "3. Support & Contact",
-      sec3Desc: 'If you have questions or wish to report an issue, please open a ticket directly on our <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues</a> tracker. You can also contact Darren Corbett directly at darrentcorbett@gmail.com.',
-      publisherInfo: "Published by Darren Corbett."
+      title: `Privacy Policy`,
+      effectiveDate: `Effective Date: October 2026`,
+      hero: `<strong>Doughnut Forge is built on a zero-knowledge, local-first architecture.</strong> This means we do not collect, transmit, store, or have any access to your data, except information you choose to send us directly (see Section 3).`,
+      sec1Title: `1. Data Storage &amp; Deletion`,
+      sec1Desc: `All cryptographic keys, <code class="k1">.vltc2</code> identities, and <code class="k2">.vlt2</code> files generated by Doughnut Forge are stored exclusively on your local device. No information leaves your device unless you explicitly export and share a file yourself. Uninstalling the app removes the software, but it does not remove files you have saved elsewhere on your device, or keys held in your system's credential manager (such as the macOS Keychain or Windows Credential Manager). You can delete these manually.`,
+      sec2Title: `2. Analytics and Telemetry`,
+      sec2Desc: `Doughnut Forge contains no built-in tracking scripts, analytics engines, or crash reporters. If you download the app from the Apple App Store or Microsoft Store, Apple or Microsoft may provide us with aggregated statistics such as download counts and crash statistics. These reports do not contain personally identifiable information. You can control the sharing of diagnostic data in your device settings.`,
+      sec3Title: `3. Support &amp; Contact`,
+      sec3Desc: `For questions or to report a technical issue, please open a ticket on our [[gh]]GitHub Issues[[/gh]] tracker. GitHub is a public platform governed by its own privacy policy, so never include sensitive or decrypted data in issue reports. For privacy-specific enquiries, please use our [[tally]]Privacy Contact Form[[/tally]]. Information you submit through that form is processed by Tally (tally.so), which we use to receive your message, and is used only to respond to your enquiry.`,
+      sec4Title: `4. Changes to this Policy`,
+      sec4Desc: `We may update this policy from time to time. Any changes will be published on this page with an updated Effective Date.`,
+      publisherInfo: `Published by Darren Corbett.`
     };
 
     const esStrings = {
-      title: "Política de Privacidad",
-      effectiveDate: "Fecha de vigencia: Septiembre de 2026",
-      hero: "<strong>Doughnut Forge se basa en una arquitectura de conocimiento cero (zero-knowledge) y centrada en el dispositivo local.</strong> Esto significa que no recopilamos, transmitimos, almacenamos ni tenemos acceso a sus datos.",
-      sec1Title: "1. Almacenamiento y Eliminación de Datos",
-      sec1Desc: 'Todas las claves criptográficas, identidades <code class="bg-slate-100 text-[#F91880] px-2 py-0.5 rounded font-bold text-sm">.vltc2</code> y archivos <code class="bg-slate-100 text-[#1DA1F2] px-2 py-0.5 rounded font-bold text-sm">.vlt2</code> se almacenan exclusivamente en su máquina local. Ninguna información sale de su dispositivo a menos que usted la comparta explícitamente. Como no se recopilan ni transmiten datos, no se conservan datos del usuario en ningún servidor. Puede eliminar por completo sus identidades y archivos locales desinstalando la aplicación de su Mac.',
-      sec2Title: "2. Analítica y Telemetría",
-      sec2Desc: "Doughnut Forge no contiene scripts de seguimiento, motores de análisis ni informadores de fallos. No monitorizamos su uso ni comportamiento.",
-      sec3Title: "3. Soporte y Contacto",
-      sec3Desc: 'Si tiene preguntas o desea informar de un problema, abra un ticket directamente en nuestro rastreador de <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues</a>. También puede ponerse en contacto con Darren Corbett directamente en darrentcorbett@gmail.com.',
-      publisherInfo: "Publicado por Darren Corbett."
+      title: `Política de privacidad`,
+      effectiveDate: `Fecha de entrada en vigor: octubre de 2026`,
+      hero: `<strong>Doughnut Forge se basa en una arquitectura local de conocimiento cero (zero-knowledge).</strong> Esto significa que no recopilamos, transmitimos, almacenamos ni accedemos a sus datos, salvo la información que nos envíe directamente (véase la sección 3).`,
+      sec1Title: `1. Almacenamiento y eliminación de datos`,
+      sec1Desc: `Todas las claves criptográficas, las identidades <code class="k1">.vltc2</code> y los archivos <code class="k2">.vlt2</code> generados por Doughnut Forge se almacenan exclusivamente en su dispositivo. Ninguna información sale de su dispositivo salvo que usted exporte y comparta un archivo por su cuenta. Desinstalar la aplicación elimina el software, pero no los archivos guardados en otra ubicación de su dispositivo ni las claves almacenadas en el gestor de credenciales del sistema (como el Llavero de macOS o el Administrador de credenciales de Windows). Puede eliminarlos manualmente.`,
+      sec2Title: `2. Analítica y telemetría`,
+      sec2Desc: `Doughnut Forge no contiene scripts de seguimiento, motores de analítica ni informes de fallos. Si descarga la aplicación desde la App Store de Apple o Microsoft Store, Apple o Microsoft pueden proporcionarnos estadísticas agregadas, como el número de descargas y las estadísticas de fallos. Estos informes no contienen información de identificación personal. Puede controlar el uso de los datos de diagnóstico en los ajustes de su dispositivo.`,
+      sec3Title: `3. Soporte y contacto`,
+      sec3Desc: `Para preguntas o para informar de un problema técnico, abra un ticket en nuestro [[gh]]GitHub Issues[[/gh]]. GitHub es una plataforma pública regida por su propia política de privacidad, así que nunca incluya datos sensibles o descifrados en los informes. Para consultas de privacidad, use nuestro [[tally]]formulario de contacto[[/tally]]. La información que envíe a través de ese formulario es tratada por Tally (tally.so), que usamos para recibir su mensaje, y solo se utiliza para responder a su consulta.`,
+      sec4Title: `4. Cambios en esta política`,
+      sec4Desc: `Podemos actualizar esta política ocasionalmente. Los cambios se publicarán en esta página con una fecha de entrada en vigor actualizada.`,
+      publisherInfo: `Publicado por Darren Corbett.`
     };
 
     const TRANSLATIONS = {
       "en": enStrings,
-      "en-US": enStrings, // Maps US English to base English
-      "fr": {
-        title: "Politique de Confidentialité",
-        effectiveDate: "Date d'effet : Septembre 2026",
-        hero: "<strong>Doughnut Forge repose sur une architecture locale et à connaissance nulle (zero-knowledge).</strong> Cela signifie que nous ne collectons, ne transmettons, ne stockons et n'avons accès à aucune de vos données.",
-        sec1Title: "1. Stockage et suppression des données",
-        sec1Desc: 'Toutes les clés, identités <code class="bg-slate-100 text-[#F91880] px-2 py-0.5 rounded font-bold text-sm">.vltc2</code> et fichiers <code class="bg-slate-100 text-[#1DA1F2] px-2 py-0.5 rounded font-bold text-sm">.vlt2</code> sont stockés exclusivement sur votre machine. Aucune information ne quitte votre appareil. Aucune donnée n\'étant collectée ou transmise, aucune donnée utilisateur n\'est conservée sur aucun serveur. Vous pouvez supprimer complètement vos identités et fichiers locaux en désinstallant l\'application de votre Mac.',
-        sec2Title: "2. Analytique et télémétrie",
-        sec2Desc: "Doughnut Forge ne contient aucun script de suivi. Nous ne surveillons pas votre utilisation.",
-        sec3Title: "3. Support et contact",
-        sec3Desc: 'Pour toute question, veuillez ouvrir un ticket sur <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues</a>. Vous pouvez également contacter Darren Corbett directement à darrentcorbett@gmail.com.',
-        publisherInfo: "Publié par Darren Corbett."
-      },
-      "de": {
-        title: "Datenschutzerklärung",
-        effectiveDate: "Gültig ab: September 2026",
-        hero: "<strong>Doughnut Forge basiert auf einer Zero-Knowledge- und Local-First-Architektur.</strong> Das bedeutet, dass wir Ihre Daten nicht erfassen, übertragen oder speichern.",
-        sec1Title: "1. Datenspeicherung und -löschung",
-        sec1Desc: 'Alle kryptografischen Schlüssel und <code class="bg-slate-100 text-[#1DA1F2] px-2 py-0.5 rounded font-bold text-sm">.vlt2</code>-Dateien werden ausschließlich lokal gespeichert. Es verlassen keine Informationen Ihr Gerät. Da keine Daten erfasst oder übertragen werden, werden keine Benutzerdaten auf Servern gespeichert. Sie können Ihre lokalen Identitäten und Dateien vollständig löschen, indem Sie die Anwendung von Ihrem Mac deinstallieren.',
-        sec2Title: "2. Analysen und Telemetrie",
-        sec2Desc: "Doughnut Forge enthält keine Tracking-Skripte oder Absturzmelder.",
-        sec3Title: "3. Support & Kontakt",
-        sec3Desc: 'Wenn Sie ein Problem melden möchten, öffnen Sie bitte ein Ticket in unserem <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues-Tracker</a>. Sie können Darren Corbett auch direkt unter darrentcorbett@gmail.com kontaktieren.',
-        publisherInfo: "Veröffentlicht von Darren Corbett."
-      },
+      "en-US": enStrings,
       "es": esStrings,
-      "es-MX": esStrings, // Maps MX Spanish to base Spanish
+      "es-MX": esStrings,
+
+      "fr": {
+        title: `Politique de confidentialité`,
+        effectiveDate: `Date d'entrée en vigueur : octobre 2026`,
+        hero: `<strong>Doughnut Forge repose sur une architecture locale à connaissance nulle (zero-knowledge).</strong> Cela signifie que nous ne collectons, ne transmettons, ne stockons et n'accédons à vos données que dans la mesure où vous nous les envoyez directement (voir la section 3).`,
+        sec1Title: `1. Stockage et suppression des données`,
+        sec1Desc: `Toutes les clés cryptographiques, les identités <code class="k1">.vltc2</code> et les fichiers <code class="k2">.vlt2</code> générés par Doughnut Forge sont stockés exclusivement sur votre appareil. Aucune information ne quitte votre appareil, sauf si vous exportez et partagez vous-même un fichier. La désinstallation de l'application supprime le logiciel, mais pas les fichiers que vous avez enregistrés ailleurs sur votre appareil, ni les clés conservées dans le gestionnaire d'identifiants de votre système (par exemple le Trousseau macOS ou le Gestionnaire d'identifiants Windows). Vous pouvez les supprimer manuellement.`,
+        sec2Title: `2. Analyses et télémétrie`,
+        sec2Desc: `Doughnut Forge ne contient ni script de suivi, ni moteur d'analyse, ni outil de rapport de plantage. Si vous téléchargez l'application depuis l'App Store d'Apple ou le Microsoft Store, Apple ou Microsoft peuvent nous fournir des statistiques agrégées, comme le nombre de téléchargements et les statistiques de plantage. Ces rapports ne contiennent aucune information permettant de vous identifier personnellement. Vous pouvez contrôler le partage des données de diagnostic dans les paramètres de votre appareil.`,
+        sec3Title: `3. Assistance et contact`,
+        sec3Desc: `Pour toute question ou pour signaler un problème technique, ouvrez un ticket sur notre [[gh]]suivi GitHub Issues[[/gh]]. GitHub est une plateforme publique régie par sa propre politique de confidentialité ; n'y incluez jamais de données sensibles ou déchiffrées. Pour les demandes relatives à la confidentialité, utilisez notre [[tally]]formulaire de contact[[/tally]]. Les informations que vous y soumettez sont traitées par Tally (tally.so), que nous utilisons pour recevoir votre message, et ne servent qu'à répondre à votre demande.`,
+        sec4Title: `4. Modifications de cette politique`,
+        sec4Desc: `Nous pouvons mettre à jour cette politique de temps à autre. Toute modification sera publiée sur cette page avec une date d'entrée en vigueur actualisée.`,
+        publisherInfo: `Publié par Darren Corbett.`
+      },
+
+      "de": {
+        title: `Datenschutzerklärung`,
+        effectiveDate: `Gültig ab: Oktober 2026`,
+        hero: `<strong>Doughnut Forge basiert auf einer Zero-Knowledge- und Local-First-Architektur.</strong> Das bedeutet, dass wir Ihre Daten nicht erheben, übertragen, speichern oder darauf zugreifen, mit Ausnahme der Informationen, die Sie uns direkt übermitteln (siehe Abschnitt 3).`,
+        sec1Title: `1. Datenspeicherung und -löschung`,
+        sec1Desc: `Alle kryptografischen Schlüssel, <code class="k1">.vltc2</code>-Identitäten und <code class="k2">.vlt2</code>-Dateien, die von Doughnut Forge erzeugt werden, werden ausschließlich auf Ihrem Gerät gespeichert. Keine Informationen verlassen Ihr Gerät, außer Sie exportieren und teilen eine Datei selbst. Durch die Deinstallation der App wird die Software entfernt, nicht jedoch Dateien, die Sie an anderer Stelle auf Ihrem Gerät gespeichert haben, oder Schlüssel im Anmeldeinformationsspeicher Ihres Systems (z. B. Schlüsselbund unter macOS oder Anmeldeinformationsverwaltung unter Windows). Diese können Sie manuell löschen.`,
+        sec2Title: `2. Analysen und Telemetrie`,
+        sec2Desc: `Doughnut Forge enthält keine Tracking-Skripte, Analyse-Engines oder Absturzberichterstatter. Wenn Sie die App im Apple App Store oder im Microsoft Store herunterladen, können Apple oder Microsoft uns aggregierte Statistiken wie Download-Zahlen und Absturzstatistiken bereitstellen. Diese Berichte enthalten keine personenbezogenen Daten. Die Weitergabe von Diagnosedaten können Sie in den Geräteeinstellungen steuern.`,
+        sec3Title: `3. Support &amp; Kontakt`,
+        sec3Desc: `Bei Fragen oder zur Meldung technischer Probleme eröffnen Sie bitte ein Ticket in unserem [[gh]]GitHub-Issues-Tracker[[/gh]]. GitHub ist eine öffentliche Plattform, für die deren eigene Datenschutzrichtlinie gilt. Geben Sie dort niemals sensible oder entschlüsselte Daten an. Für datenschutzbezogene Anfragen nutzen Sie bitte unser [[tally]]Kontaktformular[[/tally]]. Die dort übermittelten Angaben werden von Tally (tally.so) in unserem Auftrag verarbeitet und nur verwendet, um Ihre Anfrage zu beantworten.`,
+        sec4Title: `4. Änderungen dieser Richtlinie`,
+        sec4Desc: `Wir können diese Richtlinie von Zeit zu Zeit aktualisieren. Änderungen werden auf dieser Seite mit einem aktualisierten Gültigkeitsdatum veröffentlicht.`,
+        publisherInfo: `Veröffentlicht von Darren Corbett.`
+      },
+
       "it": {
-        title: "Informativa sulla Privacy",
-        effectiveDate: "Data di entrata in vigore: Settembre 2026",
-        hero: "<strong>Doughnut Forge è basato su un'architettura a conoscenza zero e rigorosamente locale.</strong> Non raccogliamo, trasmettiamo o abbiamo accesso ai tuoi dati.",
-        sec1Title: "1. Archiviazione e Cancellazione dei Dati",
-        sec1Desc: 'Tutte le chiavi e i file <code class="bg-slate-100 text-[#1DA1F2] px-2 py-0.5 rounded font-bold text-sm">.vlt2</code> sono archiviati esclusivamente sul tuo computer locale. Poiché nessun dato viene raccolto o trasmesso, nessun dato dell\'utente viene conservato su alcun server. Puoi eliminare completamente le tue identità e i tuoi file locali disinstallando l\'applicazione dal tuo Mac.',
-        sec2Title: "2. Analisi e Telemetria",
-        sec2Desc: "Doughnut Forge non contiene script di tracciamento. Non monitoriamo il tuo utilizzo.",
-        sec3Title: "3. Supporto e Contatti",
-        sec3Desc: 'Se desideri segnalare un problema, apri un ticket sul nostro tracker <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues</a>. Puoi anche contattare Darren Corbett direttamente all\'indirizzo darrentcorbett@gmail.com.',
-        publisherInfo: "Pubblicato da Darren Corbett."
+        title: `Informativa sulla privacy`,
+        effectiveDate: `Data di entrata in vigore: ottobre 2026`,
+        hero: `<strong>Doughnut Forge si basa su un'architettura locale a conoscenza zero (zero-knowledge).</strong> Ciò significa che non raccogliamo, trasmettiamo, conserviamo né accediamo ai tuoi dati, ad eccezione delle informazioni che ci invii direttamente (vedi la sezione 3).`,
+        sec1Title: `1. Archiviazione ed eliminazione dei dati`,
+        sec1Desc: `Tutte le chiavi crittografiche, le identità <code class="k1">.vltc2</code> e i file <code class="k2">.vlt2</code> generati da Doughnut Forge sono archiviati esclusivamente sul tuo dispositivo. Nessuna informazione lascia il dispositivo, a meno che tu non esporti e condivida un file personalmente. La disinstallazione dell'app rimuove il software, ma non i file salvati altrove sul dispositivo né le chiavi conservate nel gestore delle credenziali di sistema (come il Portachiavi di macOS o Gestione credenziali di Windows). Puoi eliminarli manualmente.`,
+        sec2Title: `2. Analisi e telemetria`,
+        sec2Desc: `Doughnut Forge non contiene script di tracciamento, motori di analisi o strumenti di segnalazione degli arresti anomali. Se scarichi l'app dall'App Store di Apple o dal Microsoft Store, Apple o Microsoft possono fornirci statistiche aggregate, come il numero di download e le statistiche sugli arresti anomali. Questi report non contengono informazioni personali identificabili. Puoi controllare la condivisione dei dati diagnostici nelle impostazioni del dispositivo.`,
+        sec3Title: `3. Supporto e contatti`,
+        sec3Desc: `Per problemi o domande tecniche, apri un ticket sul nostro [[gh]]tracker GitHub Issues[[/gh]]. GitHub è una piattaforma pubblica regolata dalla propria informativa sulla privacy, quindi non includere mai dati sensibili o decifrati nelle segnalazioni. Per richieste relative alla privacy, usa il nostro [[tally]]modulo di contatto[[/tally]]. Le informazioni inviate tramite tale modulo sono elaborate da Tally (tally.so), che usiamo per ricevere il tuo messaggio, e vengono utilizzate solo per rispondere alla tua richiesta.`,
+        sec4Title: `4. Modifiche a questa informativa`,
+        sec4Desc: `Possiamo aggiornare questa informativa di tanto in tanto. Eventuali modifiche saranno pubblicate su questa pagina con una data di entrata in vigore aggiornata.`,
+        publisherInfo: `Pubblicato da Darren Corbett.`
       },
+
       "nl": {
-        title: "Privacybeleid",
-        effectiveDate: "Ingangsdatum: September 2026",
-        hero: "<strong>Doughnut Forge is gebouwd op een zero-knowledge architectuur.</strong> Dit betekent dat we uw gegevens niet verzamelen of inzien.",
-        sec1Title: "1. Gegevensopslag en Verwijdering",
-        sec1Desc: 'Alle sleutels en <code class="bg-slate-100 text-[#1DA1F2] px-2 py-0.5 rounded font-bold text-sm">.vlt2</code>-bestanden worden lokaal opgeslagen. Er verlaat nooit informatie uw apparaat. Omdat er geen gegevens worden verzameld of verzonden, worden er geen gebruikersgegevens bewaard op servers. U kunt uw lokale identiteiten en bestanden volledig verwijderen door de applicatie van uw Mac te verwijderen.',
-        sec2Title: "2. Analyse en Telemetrie",
-        sec2Desc: "Doughnut Forge bevat geen trackingscripts. We monitoren uw gebruik niet.",
-        sec3Title: "3. Ondersteuning & Contact",
-        sec3Desc: 'Meld een probleem direct via onze <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues</a>. U kunt ook rechtstreeks contact opnemen met Darren Corbett via darrentcorbett@gmail.com.',
-        publisherInfo: "Gepubliceerd door Darren Corbett."
+        title: `Privacybeleid`,
+        effectiveDate: `Ingangsdatum: oktober 2026`,
+        hero: `<strong>Doughnut Forge is gebouwd op een lokale zero-knowledge-architectuur.</strong> Dit betekent dat wij uw gegevens niet verzamelen, verzenden, opslaan of anderszins benaderen, behalve de informatie die u rechtstreeks aan ons verstrekt (zie sectie 3).`,
+        sec1Title: `1. Gegevensopslag en verwijdering`,
+        sec1Desc: `Alle cryptografische sleutels, <code class="k1">.vltc2</code>-identiteiten en <code class="k2">.vlt2</code>-bestanden die door Doughnut Forge worden gegenereerd, worden uitsluitend op uw apparaat opgeslagen. Er verlaat nooit informatie uw apparaat, tenzij u zelf een bestand exporteert en deelt. Het verwijderen van de app verwijdert de software, maar niet de bestanden die u elders op uw apparaat hebt opgeslagen, of de sleutels die in de referentiebeheerder van uw systeem staan (zoals de macOS-sleutelhanger of Referentiebeheer van Windows). U kunt deze handmatig verwijderen.`,
+        sec2Title: `2. Analyse en telemetrie`,
+        sec2Desc: `Doughnut Forge bevat geen trackingscripts, analysemodules of crashrapporteurs. Als u de app downloadt via de Apple App Store of de Microsoft Store, kunnen Apple of Microsoft ons geaggregeerde statistieken verstrekken, zoals aantallen downloads en crashstatistieken. Deze rapporten bevatten geen persoonlijk identificeerbare informatie. U kunt het delen van diagnostische gegevens regelen in de instellingen van uw apparaat.`,
+        sec3Title: `3. Ondersteuning en contact`,
+        sec3Desc: `Voor technische vragen of om een probleem te melden, opent u een ticket in onze [[gh]]GitHub Issues-tracker[[/gh]]. GitHub is een openbaar platform dat wordt beheerd door zijn eigen privacybeleid; voeg daar nooit gevoelige of ontsleutelde gegevens toe. Voor privacygerelateerde vragen gebruikt u ons [[tally]]contactformulier[[/tally]]. Gegevens die u daarin invult, worden door Tally (tally.so) verwerkt, die wij gebruiken om uw bericht te ontvangen, en worden alleen gebruikt om uw vraag te beantwoorden.`,
+        sec4Title: `4. Wijzigingen in dit beleid`,
+        sec4Desc: `Wij kunnen dit beleid van tijd tot tijd bijwerken. Wijzigingen worden op deze pagina gepubliceerd met een bijgewerkte ingangsdatum.`,
+        publisherInfo: `Gepubliceerd door Darren Corbett.`
       },
-      "sv": { title: "Integritetspolicy", effectiveDate: "Ikraftträdande: September 2026", hero: "<strong>Doughnut Forge bygger på en zero-knowledge arkitektur.</strong>", sec1Title: "1. Datalagring & Radering", sec1Desc: "Alla nycklar lagras lokalt. Radera data genom att avinstallera.", sec2Title: "2. Telemetri", sec2Desc: "Vi spårar dig inte.", sec3Title: "3. Kontakt", sec3Desc: 'Kontakta oss via <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub</a> eller darrentcorbett@gmail.com.', publisherInfo: "Publicerad av Darren Corbett." },
-      "da": { title: "Privatlivspolitik", effectiveDate: "September 2026", hero: "<strong>Doughnut Forge bygger på en zero-knowledge arkitektur.</strong>", sec1Title: "1. Datalagring & Sletning", sec1Desc: "Alle nøgler gemmes lokalt. Slet data ved at afinstallere.", sec2Title: "2. Telemetri", sec2Desc: "Vi sporer dig ikke.", sec3Title: "3. Kontakt", sec3Desc: 'Kontakt os via <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub</a> eller darrentcorbett@gmail.com.', publisherInfo: "Udgivet af Darren Corbett." },
-      "fi": { title: "Tietosuojakäytäntö", effectiveDate: "Syyskuu 2026", hero: "<strong>Doughnut Forge perustuu nollatietoon.</strong>", sec1Title: "1. Tietojen tallennus ja poisto", sec1Desc: "Avaimet tallennetaan paikallisesti. Poista asennus poistaaksesi tiedot.", sec2Title: "2. Telemetria", sec2Desc: "Emme seuraa sinua.", sec3Title: "3. Yhteystiedot", sec3Desc: 'Ota yhteyttä <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHubin</a> kautta tai darrentcorbett@gmail.com.', publisherInfo: "Julkaissut Darren Corbett." },
-      "no": { title: "Personvernerklæring", effectiveDate: "September 2026", hero: "<strong>Doughnut Forge bygger på en nullkunnskapsarkitektur.</strong>", sec1Title: "1. Datalagring og Sletting", sec1Desc: "Alle nøkler lagres lokalt. Slett data ved å avinstallere.", sec2Title: "2. Telemetri", sec2Desc: "Vi sporer deg ikke.", sec3Title: "3. Kontakt", sec3Desc: 'Kontakt oss via <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub</a> eller darrentcorbett@gmail.com.', publisherInfo: "Utgitt av Darren Corbett." },
-      "pl": {
-        title: "Polityka Prywatności",
-        effectiveDate: "Data wejścia w życie: Wrzesień 2026",
-        hero: "<strong>Doughnut Forge opiera się na architekturze zero-knowledge.</strong>",
-        sec1Title: "1. Przechowywanie i Usuwanie Danych",
-        sec1Desc: 'Wszystkie klucze i pliki <code class="bg-slate-100 text-[#1DA1F2] px-2 py-0.5 rounded font-bold text-sm">.vlt2</code> są przechowywane wyłącznie lokalnie. Możesz usunąć dane, odinstalowując aplikację.',
-        sec2Title: "2. Telemetria",
-        sec2Desc: "Doughnut Forge nie zawiera skryptów śledzących.",
-        sec3Title: "3. Kontakt",
-        sec3Desc: 'Utwórz zgłoszenie w <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues</a> lub skontaktuj się z darrentcorbett@gmail.com.',
-        publisherInfo: "Opublikowane przez Darren Corbett."
-      },
-      "cs": { title: "Zásady ochrany osobních údajů", effectiveDate: "Září 2026", hero: "<strong>Doughnut Forge je postaven na architektuře zero-knowledge.</strong>", sec1Title: "1. Ukládání a mazání dat", sec1Desc: "Klíče jsou uloženy lokálně. Smažte data odinstalováním.", sec2Title: "2. Telemetrie", sec2Desc: "Nesledujeme vás.", sec3Title: "3. Kontakt", sec3Desc: 'Kontaktujte nás přes <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub</a> nebo darrentcorbett@gmail.com.', publisherInfo: "Vydal Darren Corbett." },
-      "hu": { title: "Adatvédelmi irányelvek", effectiveDate: "2026 Szeptember", hero: "<strong>A Doughnut Forge nulla tudású architektúrára épül.</strong>", sec1Title: "1. Adattárolás és Törlés", sec1Desc: "Kulcsok helyben tárolva. Törlés eltávolítással.", sec2Title: "2. Telemetria", sec2Desc: "Nem követjük Önt.", sec3Title: "3. Kapcsolat", sec3Desc: '<a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub</a> vagy darrentcorbett@gmail.com.', publisherInfo: "Kiadó: Darren Corbett." },
-      "ro": { title: "Politica de Confidențialitate", effectiveDate: "Septembrie 2026", hero: "<strong>Doughnut Forge este zero-knowledge.</strong>", sec1Title: "1. Stocarea și Ștergerea Datelor", sec1Desc: "Stocate local. Ștergeți prin dezinstalare.", sec2Title: "2. Telemetrie", sec2Desc: "Fără urmărire.", sec3Title: "3. Contact", sec3Desc: '<a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub</a> sau darrentcorbett@gmail.com.', publisherInfo: "Publicat de Darren Corbett." },
-      "ru": {
-        title: "Политика конфиденциальности",
-        effectiveDate: "Дата вступления в силу: Сентябрь 2026",
-        hero: "<strong>Doughnut Forge построен на архитектуре с нулевым разглашением (zero-knowledge) и приоритетом локального хранения.</strong> Это означает, что мы не собираем, не передаем, не храним и не имеем доступа к вашим данным.",
-        sec1Title: "1. Хранение и удаление данных",
-        sec1Desc: 'Все криптографические ключи, идентификаторы <code class="bg-slate-100 text-[#F91880] px-2 py-0.5 rounded font-bold text-sm">.vltc2</code> и файлы <code class="bg-slate-100 text-[#1DA1F2] px-2 py-0.5 rounded font-bold text-sm">.vlt2</code> хранятся исключительно на вашем локальном устройстве. Никакая информация не покидает устройство, если вы сами не решите экспортировать файл. Поскольку данные не собираются и не передаются, они не хранятся ни на каких серверах. Вы можете полностью удалить свои локальные идентификаторы и файлы, удалив приложение с вашего Mac.',
-        sec2Title: "2. Аналитика и телеметрия",
-        sec2Desc: "Doughnut Forge не содержит трекеров, аналитических систем или средств отслеживания сбоев. Мы не отслеживаем ваше использование или поведение.",
-        sec3Title: "3. Поддержка и контакты",
-        sec3Desc: 'Если у вас есть вопросы или вы хотите сообщить о проблеме, создайте обращение в <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues</a>. Вы также можете связаться с Darren Corbett по адресу darrentcorbett@gmail.com.',
-        publisherInfo: "Опубликовано: Darren Corbett."
-      },
-      "el": { title: "Πολιτική Απορρήτου", effectiveDate: "Σεπτέμβριος 2026", hero: "<strong>Το Doughnut Forge είναι zero-knowledge.</strong>", sec1Title: "1. Αποθήκευση και Διαγραφή Δεδομένων", sec1Desc: "Τοπική αποθήκευση. Διαγραφή μέσω απεγκατάστασης.", sec2Title: "2. Τηλεμετρία", sec2Desc: "Καμία παρακολούθηση.", sec3Title: "3. Επικοινωνία", sec3Desc: '<a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub</a> ή darrentcorbett@gmail.com.', publisherInfo: "Εκδόθηκε από τον Darren Corbett." },
-      "uk": { title: "Політика конфіденційності", effectiveDate: "Вересень 2026", hero: "<strong>Doughnut Forge побудовано на архітектурі zero-knowledge.</strong>", sec1Title: "1. Зберігання та видалення даних", sec1Desc: "Ключі зберігаються локально. Видаліть дані шляхом видалення програми.", sec2Title: "2. Телеметрія", sec2Desc: "Ми не стежимо за вами.", sec3Title: "3. Контакти", sec3Desc: '<a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub</a> або darrentcorbett@gmail.com.', publisherInfo: "Опубліковано Darren Corbett." },
+
       "pt-BR": {
-        title: "Política de Privacidade",
-        effectiveDate: "Data de Vigência: Setembro de 2026",
-        hero: "<strong>O Doughnut Forge é construído em uma arquitetura de conhecimento zero.</strong> Não coletamos seus dados.",
-        sec1Title: "1. Armazenamento e Exclusão de Dados",
-        sec1Desc: 'Todas as chaves e arquivos <code class="bg-slate-100 text-[#1DA1F2] px-2 py-0.5 rounded font-bold text-sm">.vlt2</code> são armazenados localmente. Você pode excluir seus dados desinstalando o aplicativo.',
-        sec2Title: "2. Telemetria",
-        sec2Desc: "Não monitoramos seu uso.",
-        sec3Title: "3. Contato",
-        sec3Desc: 'Abra um tíquete no <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues</a> ou contate darrentcorbett@gmail.com.',
-        publisherInfo: "Publicado por Darren Corbett."
+        title: `Política de Privacidade`,
+        effectiveDate: `Data de vigência: outubro de 2026`,
+        hero: `<strong>O Doughnut Forge é construído sobre uma arquitetura local de conhecimento zero (zero-knowledge).</strong> Isso significa que não coletamos, transmitimos, armazenamos nem acessamos seus dados, exceto as informações que você nos enviar diretamente (veja a seção 3).`,
+        sec1Title: `1. Armazenamento e exclusão de dados`,
+        sec1Desc: `Todas as chaves criptográficas, identidades <code class="k1">.vltc2</code> e arquivos <code class="k2">.vlt2</code> gerados pelo Doughnut Forge são armazenados exclusivamente no seu dispositivo. Nenhuma informação sai do seu dispositivo, a menos que você mesmo exporte e compartilhe um arquivo. Desinstalar o aplicativo remove o software, mas não remove os arquivos salvos em outros locais do dispositivo nem as chaves guardadas no gerenciador de credenciais do sistema (como o Keychain do macOS ou o Gerenciador de Credenciais do Windows). Você pode excluí-los manualmente.`,
+        sec2Title: `2. Análises e telemetria`,
+        sec2Desc: `O Doughnut Forge não contém scripts de rastreamento, mecanismos de análise nem coletores de relatórios de falhas. Se você baixar o aplicativo pela App Store da Apple ou pela Microsoft Store, a Apple ou a Microsoft podem nos fornecer estatísticas agregadas, como contagens de downloads e estatísticas de falhas. Esses relatórios não incluem informações de identificação pessoal. Você pode controlar o compartilhamento de dados de diagnóstico nas configurações do seu dispositivo.`,
+        sec3Title: `3. Suporte e contato`,
+        sec3Desc: `Para dúvidas ou problemas técnicos, abra um ticket no nosso [[gh]]GitHub Issues[[/gh]]. O GitHub é uma plataforma pública regida pela própria política de privacidade, então nunca inclua dados sensíveis ou descriptografados. Para questões de privacidade, use nosso [[tally]]formulário de contato[[/tally]]. Os dados enviados por ele são processados pela Tally (tally.so), que usamos para receber sua mensagem, e são usados apenas para responder à sua solicitação.`,
+        sec4Title: `4. Alterações nesta política`,
+        sec4Desc: `Podemos atualizar esta política de tempos em tempos. As alterações serão publicadas nesta página com uma data de vigência atualizada.`,
+        publisherInfo: `Publicado por Darren Corbett.`
       },
-      "tr": {
-        title: "Gizlilik Politikası",
-        effectiveDate: "Yürürlük Tarihi: Eylül 2026",
-        hero: "<strong>Doughnut Forge, sıfır bilgi mimarisi üzerine inşa edilmiştir.</strong>",
-        sec1Title: "1. Veri Depolama ve Silme",
-        sec1Desc: 'Tüm anahtarlar ve <code class="bg-slate-100 text-[#1DA1F2] px-2 py-0.5 rounded font-bold text-sm">.vlt2</code> dosyaları yalnızca yerel olarak saklanır. Uygulamayı kaldırarak verilerinizi silebilirsiniz.',
-        sec2Title: "2. Telemetri",
-        sec2Desc: "Kullanımınızı izlemeyiz.",
-        sec3Title: "3. İletişim",
-        sec3Desc: 'Talepleriniz için <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues</a> veya darrentcorbett@gmail.com.',
-        publisherInfo: "Yayınlayan: Darren Corbett."
-      },
+
       "ja": {
-        title: "プライバシーポリシー",
-        effectiveDate: "発効日: 2026年9月",
-        hero: "<strong>Doughnut Forgeは、ゼロ知識のアーキテクチャで構築されています。</strong> データを収集することはありません。",
-        sec1Title: "1. データストレージと削除",
-        sec1Desc: 'すべてのキーとファイルはローカルマシンにのみ保存されます。アプリをアンインストールすることでデータを完全に削除できます。',
-        sec2Title: "2. テレメトリー",
-        sec2Desc: "トラッキングは行いません。",
-        sec3Title: "3. サポート",
-        sec3Desc: '<a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues</a> にてお問い合わせいただくか、darrentcorbett@gmail.com までご連絡ください。',
-        publisherInfo: "発行者: Darren Corbett"
+        title: `プライバシーポリシー`,
+        effectiveDate: `発効日: 2026年10月`,
+        hero: `<strong>Doughnut Forgeは、ゼロ知識・ローカルファーストのアーキテクチャで構築されています。</strong>つまり、お客様が直接お送りいただく情報を除き、お客様のデータを収集、送信、保存、またはアクセスすることはありません（セクション3をご覧ください）。`,
+        sec1Title: `1. データの保存と削除`,
+        sec1Desc: `Doughnut Forgeが生成するすべての暗号鍵、<code class="k1">.vltc2</code>の識別情報、<code class="k2">.vlt2</code>ファイルは、お使いの端末にのみ保存されます。お客様ご自身がファイルをエクスポートして共有しない限り、情報が端末外に出ることはありません。アプリをアンインストールするとソフトウェアは削除されますが、端末内の別の場所に保存したファイルや、システムの資格情報マネージャー（macOSのキーチェーンやWindowsの資格情報マネージャーなど）に保存された鍵は削除されません。これらは手動で削除できます。`,
+        sec2Title: `2. 分析とテレメトリー`,
+        sec2Desc: `Doughnut Forgeには、トラッキングスクリプト、分析エンジン、クラッシュレポーターは組み込まれていません。Apple App StoreまたはMicrosoft Storeからアプリをダウンロードした場合、ダウンロード数やクラッシュ統計などの集計データがAppleまたはMicrosoftから提供されることがあります。これらのレポートには個人を特定できる情報は含まれません。診断データの共有は、端末の設定で管理できます。`,
+        sec3Title: `3. サポートとお問い合わせ`,
+        sec3Desc: `技術的な問題やご質問は、[[gh]]GitHub Issues[[/gh]]でチケットを作成してください。GitHubは独自のプライバシーポリシーに従う公開プラットフォームです。機密情報や復号化されたデータは、決して含めないでください。プライバシーに関するお問い合わせは、[[tally]]お問い合わせフォーム[[/tally]]をご利用ください。フォームに入力された内容は、お客様のメッセージを受け取るために利用しているTally（tally.so）で処理され、お問い合わせへの回答にのみ使用します。`,
+        sec4Title: `4. 本ポリシーの変更`,
+        sec4Desc: `本ポリシーは随時更新することがあります。変更内容は、更新された発効日とともに本ページに掲載します。`,
+        publisherInfo: `発行者: Darren Corbett`
       },
+
       "zh-CN": {
-        title: "隐私政策",
-        effectiveDate: "生效日期：2026年9月",
-        hero: "<strong>Doughnut Forge 基于零知识架构构建。</strong> 我们不会收集您的数据。",
-        sec1Title: "1. 数据存储与删除",
-        sec1Desc: '所有密钥均仅存储在您的本地设备上。卸载应用即可完全删除您的数据。',
-        sec2Title: "2. 遥测",
-        sec2Desc: "我们不会监控您的使用情况。",
-        sec3Title: "3. 支持",
-        sec3Desc: '请在 <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues</a> 上提交工单，或发送邮件至 darrentcorbett@gmail.com。',
-        publisherInfo: "发布者：Darren Corbett"
+        title: `隐私政策`,
+        effectiveDate: `生效日期：2026年10月`,
+        hero: `<strong>Doughnut Forge 采用零知识、本地优先的架构。</strong>这意味着，除您直接发送给我们的信息外，我们不会收集、传输、存储或访问您的数据（见第 3 节）。`,
+        sec1Title: `1. 数据存储与删除`,
+        sec1Desc: `Doughnut Forge 生成的所有加密密钥、<code class="k1">.vltc2</code> 身份文件和 <code class="k2">.vlt2</code> 文件仅存储在您的本地设备上。除非您自行导出并分享文件，否则任何信息都不会离开您的设备。卸载应用会删除软件本身，但不会删除您保存在设备其他位置的文件，也不会删除保存在系统凭据管理器（如 macOS 钥匙串或 Windows 凭据管理器）中的密钥。您可以手动删除这些内容。`,
+        sec2Title: `2. 分析与遥测`,
+        sec2Desc: `Doughnut Forge 不包含任何跟踪脚本、分析引擎或崩溃报告工具。如果您从 Apple App Store 或 Microsoft Store 下载本应用，Apple 或 Microsoft 可能会向我们提供汇总统计数据，例如下载次数和崩溃统计。这些报告不包含可识别个人身份的信息。您可以在设备设置中控制诊断数据的共享。`,
+        sec3Title: `3. 支持与联系`,
+        sec3Desc: `如有问题或需要报告技术故障，请在我们的[[gh]]GitHub Issues[[/gh]]上提交工单。GitHub 是一个公共平台，受其自身隐私政策约束；请勿在问题报告中包含敏感信息或解密后的数据。如有隐私相关咨询，请使用我们的[[tally]]联系表单[[/tally]]。您通过该表单提交的信息由 Tally（tally.so）代为处理，我们使用该服务接收您的消息，仅用于回复您的咨询。`,
+        sec4Title: `4. 政策变更`,
+        sec4Desc: `我们可能会不时更新本政策。任何变更都将发布在本页面，并更新生效日期。`,
+        publisherInfo: `发布者：Darren Corbett`
       },
+
       "zh-TW": {
-        title: "隱私權政策",
-        effectiveDate: "生效日期：2026年9月",
-        hero: "<strong>Doughnut Forge 基於零知識架構建立。</strong> 我們不會收集您的資料。",
-        sec1Title: "1. 資料儲存與刪除",
-        sec1Desc: '所有金鑰均僅儲存在您的本地裝置上。解除安裝應用程式即可完全刪除您的資料。',
-        sec2Title: "2. 遙測",
-        sec2Desc: "我們不會監控您的使用情況。",
-        sec3Title: "3. 支援",
-        sec3Desc: '請在 <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues</a> 上提交工單，或發送電子郵件至 darrentcorbett@gmail.com。',
-        publisherInfo: "發布者：Darren Corbett"
+        title: `隱私權政策`,
+        effectiveDate: `生效日期：2026年10月`,
+        hero: `<strong>Doughnut Forge 採用零知識、本機優先的架構。</strong>這表示，除了您直接傳送給我們的資訊之外，我們不會收集、傳輸、儲存或存取您的資料（見第 3 節）。`,
+        sec1Title: `1. 資料儲存與刪除`,
+        sec1Desc: `Doughnut Forge 產生的所有加密金鑰、<code class="k1">.vltc2</code> 身分檔和 <code class="k2">.vlt2</code> 檔案僅儲存在您的本機裝置上。除非您自行匯出並分享檔案，否則任何資訊都不會離開您的裝置。解除安裝應用程式會移除軟體本身，但不會刪除您儲存在裝置其他位置的檔案，也不會刪除儲存在系統憑證管理員（如 macOS 鑰匙圈或 Windows 認證管理員）中的金鑰。您可以手動刪除這些內容。`,
+        sec2Title: `2. 分析與遙測`,
+        sec2Desc: `Doughnut Forge 不包含任何追蹤指令碼、分析引擎或當機報告工具。如果您從 Apple App Store 或 Microsoft Store 下載本應用程式，Apple 或 Microsoft 可能會提供我們彙總統計資料，例如下載次數和當機統計。這些報告不包含可識別個人身分的資訊。您可以在裝置設定中控制診斷資料的分享。`,
+        sec3Title: `3. 支援與聯絡`,
+        sec3Desc: `如有問題或需要回報技術故障，請在我們的[[gh]]GitHub Issues[[/gh]]開立工單。GitHub 是公開平台，受其自身隱私權政策約束；請勿在問題回報中包含敏感資訊或解密後的資料。如有隱私權相關問題，請使用我們的[[tally]]聯絡表單[[/tally]]。您透過該表單提交的資訊由 Tally（tally.so）代為處理，我們使用該服務接收您的訊息，僅用於回覆您的諮詢。`,
+        sec4Title: `4. 政策變更`,
+        sec4Desc: `我們可能會不定期更新本政策。任何變更都會發布在本頁面，並更新生效日期。`,
+        publisherInfo: `發布者：Darren Corbett`
       },
+
+      "sv": {
+        title: `Integritetspolicy`,
+        effectiveDate: `Gäller från: oktober 2026`,
+        hero: `<strong>Doughnut Forge bygger på en lokal arkitektur med nollkunskap (zero-knowledge).</strong> Det innebär att vi inte samlar in, överför, lagrar eller har tillgång till dina data, förutom information som du själv väljer att skicka till oss (se avsnitt 3).`,
+        sec1Title: `1. Datalagring och radering`,
+        sec1Desc: `Alla kryptografiska nycklar, <code class="k1">.vltc2</code>-identiteter och <code class="k2">.vlt2</code>-filer som skapas av Doughnut Forge lagras uteslutande på din enhet. Ingen information lämnar din enhet om du inte själv exporterar och delar en fil. När du avinstallerar appen tas programvaran bort, men inte filer som du har sparat på andra platser på enheten eller nycklar som finns i systemets inloggningshanterare (till exempel Nyckelringen i macOS eller Autentiseringshanteraren i Windows). Du kan radera dessa manuellt.`,
+        sec2Title: `2. Analys och telemetri`,
+        sec2Desc: `Doughnut Forge innehåller inga spårningsskript, analysmotorer eller kraschrapportörer. Om du laddar ner appen från Apple App Store eller Microsoft Store kan Apple eller Microsoft ge oss sammanställd statistik, till exempel antal nedladdningar och kraschstatistik. Dessa rapporter innehåller inga uppgifter som kan identifiera dig personligen. Du kan styra delningen av diagnostikdata i enhetens inställningar.`,
+        sec3Title: `3. Support och kontakt`,
+        sec3Desc: `Vid frågor eller för att rapportera ett tekniskt problem kan du skapa ett ärende i vår [[gh]]GitHub Issues[[/gh]]-tracker. GitHub är en offentlig plattform som omfattas av sin egen integritetspolicy, så ta aldrig med känsliga eller dekrypterade data i dina rapporter. För integritetsrelaterade frågor, använd vårt [[tally]]kontaktformulär[[/tally]]. Uppgifter som du skickar via formuläret behandlas av Tally (tally.so), som vi använder för att ta emot ditt meddelande, och används endast för att besvara din fråga.`,
+        sec4Title: `4. Ändringar av denna policy`,
+        sec4Desc: `Vi kan uppdatera denna policy från tid till annan. Eventuella ändringar publiceras på denna sida med ett uppdaterat ikraftträdandedatum.`,
+        publisherInfo: `Publicerad av Darren Corbett.`
+      },
+
+      "da": {
+        title: `Privatlivspolitik`,
+        effectiveDate: `Gældende fra: oktober 2026`,
+        hero: `<strong>Doughnut Forge er bygget på en lokal zero-knowledge-arkitektur.</strong> Det betyder, at vi ikke indsamler, overfører, opbevarer eller har adgang til dine data, bortset fra oplysninger, du selv vælger at sende os (se afsnit 3).`,
+        sec1Title: `1. Datalagring og sletning`,
+        sec1Desc: `Alle kryptografiske nøgler, <code class="k1">.vltc2</code>-identiteter og <code class="k2">.vlt2</code>-filer, som Doughnut Forge genererer, gemmes udelukkende på din enhed. Ingen oplysninger forlader din enhed, medmindre du selv eksporterer og deler en fil. Når du afinstallerer appen, fjernes softwaren, men ikke filer, du har gemt andre steder på enheden, eller nøgler i systemets loginadministrator (f.eks. Nøglering i macOS eller Legitimationsstyring i Windows). Du kan slette disse manuelt.`,
+        sec2Title: `2. Analyse og telemetri`,
+        sec2Desc: `Doughnut Forge indeholder ingen sporingsscripts, analysemotorer eller nedbrudsrapportering. Hvis du henter appen fra Apple App Store eller Microsoft Store, kan Apple eller Microsoft give os samlede statistikker, f.eks. antal downloads og nedbrudsstatistik. Disse rapporter indeholder ingen personhenførbare oplysninger. Du kan styre deling af diagnosticeringsdata i enhedens indstillinger.`,
+        sec3Title: `3. Support og kontakt`,
+        sec3Desc: `Har du spørgsmål, eller vil du rapportere et teknisk problem, kan du oprette en sag i vores [[gh]]GitHub Issues[[/gh]]-tracker. GitHub er en offentlig platform med sin egen privatlivspolitik, så medtag aldrig følsomme eller dekrypterede data i dine rapporter. Ved spørgsmål om privatliv bedes du bruge vores [[tally]]kontaktformular[[/tally]]. Oplysninger, du indsender via formularen, behandles af Tally (tally.so), som vi bruger til at modtage din besked, og bruges kun til at besvare din henvendelse.`,
+        sec4Title: `4. Ændringer af denne politik`,
+        sec4Desc: `Vi kan opdatere denne politik fra tid til anden. Eventuelle ændringer offentliggøres på denne side med en opdateret ikrafttrædelsesdato.`,
+        publisherInfo: `Udgivet af Darren Corbett.`
+      },
+
+      "fi": {
+        title: `Tietosuojakäytäntö`,
+        effectiveDate: `Voimassa alkaen: lokakuu 2026`,
+        hero: `<strong>Doughnut Forge perustuu paikalliseen nollatietoarkkitehtuuriin (zero-knowledge).</strong> Tämä tarkoittaa, että emme kerää, siirrä tai tallenna tietojasi emmekä pääse niihin käsiksi, lukuun ottamatta tietoja, jotka päätät itse lähettää meille (katso kohta 3).`,
+        sec1Title: `1. Tietojen tallennus ja poistaminen`,
+        sec1Desc: `Kaikki Doughnut Forgen luomat salausavaimet, <code class="k1">.vltc2</code>-identiteetit ja <code class="k2">.vlt2</code>-tiedostot tallennetaan ainoastaan laitteellesi. Mitään tietoja ei siirry laitteeltasi, ellet itse vie ja jaa tiedostoa. Sovelluksen poistaminen poistaa ohjelmiston, mutta ei laitteen muihin sijainteihin tallentamiasi tiedostoja eikä järjestelmän tunnistetietojen hallintaan tallennettuja avaimia (kuten macOS:n Avainnippu tai Windowsin Tunnistetietojen hallinta). Voit poistaa ne manuaalisesti.`,
+        sec2Title: `2. Analytiikka ja telemetria`,
+        sec2Desc: `Doughnut Forge ei sisällä seurantaskriptejä, analytiikkamoottoreita eikä kaatumisraportointia. Jos lataat sovelluksen Applen App Storesta tai Microsoft Storesta, Apple tai Microsoft voi toimittaa meille koostettuja tilastoja, kuten latausmääriä ja kaatumistilastoja. Nämä raportit eivät sisällä henkilöiden tunnistamiseen soveltuvia tietoja. Voit hallita diagnostiikkatietojen jakamista laitteesi asetuksissa.`,
+        sec3Title: `3. Tuki ja yhteystiedot`,
+        sec3Desc: `Jos sinulla on kysyttävää tai haluat ilmoittaa teknisestä ongelmasta, avaa tiketti [[gh]]GitHub Issues[[/gh]] -seurantajärjestelmässämme. GitHub on julkinen alusta, jota koskee sen oma tietosuojakäytäntö, joten älä koskaan sisällytä raportteihin arkaluonteisia tai salauksesta purettuja tietoja. Tietosuojaan liittyvissä kysymyksissä käytä [[tally]]yhteydenottolomakettamme[[/tally]]. Lomakkeella lähettämäsi tiedot käsittelee Tally (tally.so), jota käytämme viestiesi vastaanottamiseen, ja niitä käytetään vain kysymykseesi vastaamiseen.`,
+        sec4Title: `4. Muutokset tähän käytäntöön`,
+        sec4Desc: `Voimme päivittää tätä käytäntöä ajoittain. Muutokset julkaistaan tällä sivulla päivitetyn voimaantulopäivän kanssa.`,
+        publisherInfo: `Julkaisija: Darren Corbett.`
+      },
+
+      "no": {
+        title: `Personvernerklæring`,
+        effectiveDate: `Gjelder fra: oktober 2026`,
+        hero: `<strong>Doughnut Forge er bygget på en lokal arkitektur med nullkunnskap (zero-knowledge).</strong> Det betyr at vi ikke samler inn, overfører, lagrer eller har tilgang til dataene dine, bortsett fra informasjon du selv velger å sende oss (se punkt 3).`,
+        sec1Title: `1. Datalagring og sletting`,
+        sec1Desc: `Alle kryptografiske nøkler, <code class="k1">.vltc2</code>-identiteter og <code class="k2">.vlt2</code>-filer som Doughnut Forge genererer, lagres utelukkende på enheten din. Ingen informasjon forlater enheten din med mindre du selv eksporterer og deler en fil. Når du avinstallerer appen, fjernes programvaren, men ikke filer du har lagret andre steder på enheten, eller nøkler i systemets påloggingsbehandler (for eksempel Nøkkelring i macOS eller Legitimasjonsbehandling i Windows). Du kan slette disse manuelt.`,
+        sec2Title: `2. Analyse og telemetri`,
+        sec2Desc: `Doughnut Forge inneholder ingen sporingsskript, analysemotorer eller krasjrapportering. Hvis du laster ned appen fra Apple App Store eller Microsoft Store, kan Apple eller Microsoft gi oss samlet statistikk, for eksempel antall nedlastinger og krasjstatistikk. Disse rapportene inneholder ingen personidentifiserbare opplysninger. Du kan styre deling av diagnosedata i enhetens innstillinger.`,
+        sec3Title: `3. Støtte og kontakt`,
+        sec3Desc: `Har du spørsmål eller vil rapportere et teknisk problem, kan du opprette en sak i vår [[gh]]GitHub Issues[[/gh]]-tracker. GitHub er en offentlig plattform med sin egen personvernerklæring, så ta aldri med sensitive eller dekrypterte data i rapportene dine. For spørsmål om personvern kan du bruke vårt [[tally]]kontaktskjema[[/tally]]. Opplysninger du sender inn via skjemaet, behandles av Tally (tally.so), som vi bruker for å motta meldingen din, og brukes kun til å besvare henvendelsen din.`,
+        sec4Title: `4. Endringer i denne erklæringen`,
+        sec4Desc: `Vi kan oppdatere denne erklæringen fra tid til annen. Eventuelle endringer publiseres på denne siden med en oppdatert ikrafttredelsesdato.`,
+        publisherInfo: `Publisert av Darren Corbett.`
+      },
+
+      "pl": {
+        title: `Polityka prywatności`,
+        effectiveDate: `Data wejścia w życie: październik 2026`,
+        hero: `<strong>Doughnut Forge opiera się na lokalnej architekturze o zerowej wiedzy (zero-knowledge).</strong> Oznacza to, że nie zbieramy, nie przesyłamy ani nie przechowujemy Twoich danych i nie mamy do nich dostępu, z wyjątkiem informacji, które sam zdecydujesz się nam przesłać (zob. sekcja 3).`,
+        sec1Title: `1. Przechowywanie i usuwanie danych`,
+        sec1Desc: `Wszystkie klucze kryptograficzne, tożsamości <code class="k1">.vltc2</code> i pliki <code class="k2">.vlt2</code> generowane przez Doughnut Forge są przechowywane wyłącznie na Twoim urządzeniu. Żadne informacje nie opuszczają urządzenia, chyba że sam wyeksportujesz i udostępnisz plik. Odinstalowanie aplikacji usuwa oprogramowanie, ale nie usuwa plików zapisanych w innych miejscach na urządzeniu ani kluczy przechowywanych w systemowym menedżerze poświadczeń (np. w Pęku kluczy w macOS lub w Menedżerze poświadczeń w Windows). Możesz usunąć je ręcznie.`,
+        sec2Title: `2. Analityka i telemetria`,
+        sec2Desc: `Doughnut Forge nie zawiera skryptów śledzących, narzędzi analitycznych ani mechanizmów raportowania awarii. Jeśli pobierzesz aplikację z Apple App Store lub Microsoft Store, Apple lub Microsoft mogą udostępniać nam zbiorcze statystyki, takie jak liczba pobrań i statystyki awarii. Raporty te nie zawierają informacji umożliwiających identyfikację osób. Udostępnianie danych diagnostycznych możesz kontrolować w ustawieniach urządzenia.`,
+        sec3Title: `3. Wsparcie i kontakt`,
+        sec3Desc: `W razie pytań lub aby zgłosić problem techniczny, utwórz zgłoszenie w naszym systemie [[gh]]GitHub Issues[[/gh]]. GitHub jest platformą publiczną podlegającą własnej polityce prywatności, dlatego nigdy nie umieszczaj w zgłoszeniach danych wrażliwych ani odszyfrowanych. W sprawach dotyczących prywatności skorzystaj z naszego [[tally]]formularza kontaktowego[[/tally]]. Informacje przesłane za jego pośrednictwem są przetwarzane przez Tally (tally.so), z którego korzystamy, aby odbierać wiadomości, i są wykorzystywane wyłącznie do udzielenia odpowiedzi na Twoje zapytanie.`,
+        sec4Title: `4. Zmiany niniejszej polityki`,
+        sec4Desc: `Możemy od czasu do czasu aktualizować niniejszą politykę. Wszelkie zmiany zostaną opublikowane na tej stronie wraz ze zaktualizowaną datą wejścia w życie.`,
+        publisherInfo: `Opublikowane przez Darrena Corbetta.`
+      },
+
+      "cs": {
+        title: `Zásady ochrany osobních údajů`,
+        effectiveDate: `Platnost od: říjen 2026`,
+        hero: `<strong>Doughnut Forge je postaven na lokální architektuře s nulovou znalostí (zero-knowledge).</strong> To znamená, že vaše data neshromažďujeme, nepřenášíme, neukládáme ani k nim nemáme přístup, s výjimkou informací, které se nám sami rozhodnete zaslat (viz oddíl 3).`,
+        sec1Title: `1. Ukládání a mazání dat`,
+        sec1Desc: `Všechny kryptografické klíče, identity <code class="k1">.vltc2</code> a soubory <code class="k2">.vlt2</code> vytvořené aplikací Doughnut Forge se ukládají výhradně ve vašem zařízení. Žádné informace vaše zařízení neopustí, pokud soubor sami neexportujete a nesdílíte. Odinstalováním aplikace se odstraní software, nikoli však soubory, které jste uložili jinde v zařízení, ani klíče uložené ve správci přihlašovacích údajů systému (např. Klíčenka v macOS nebo Správce pověření ve Windows). Ty můžete smazat ručně.`,
+        sec2Title: `2. Analytika a telemetrie`,
+        sec2Desc: `Doughnut Forge neobsahuje žádné sledovací skripty, analytické nástroje ani nástroje pro hlášení pádů. Pokud si aplikaci stáhnete z Apple App Store nebo Microsoft Store, mohou nám Apple nebo Microsoft poskytovat souhrnné statistiky, například počty stažení a statistiky pádů. Tyto zprávy neobsahují osobní identifikační údaje. Sdílení diagnostických dat můžete ovládat v nastavení zařízení.`,
+        sec3Title: `3. Podpora a kontakt`,
+        sec3Desc: `S dotazy nebo pro nahlášení technického problému založte požadavek v našem systému [[gh]]GitHub Issues[[/gh]]. GitHub je veřejná platforma, která se řídí vlastními zásadami ochrany osobních údajů, proto do hlášení nikdy neuvádějte citlivá ani dešifrovaná data. S dotazy týkajícími se ochrany soukromí použijte náš [[tally]]kontaktní formulář[[/tally]]. Informace odeslané prostřednictvím formuláře zpracovává služba Tally (tally.so), kterou používáme k přijímání zpráv, a slouží pouze k zodpovězení vašeho dotazu.`,
+        sec4Title: `4. Změny těchto zásad`,
+        sec4Desc: `Tyto zásady můžeme čas od času aktualizovat. Veškeré změny budou zveřejněny na této stránce spolu s aktualizovaným datem platnosti.`,
+        publisherInfo: `Vydal Darren Corbett.`
+      },
+
+      "hu": {
+        title: `Adatvédelmi irányelvek`,
+        effectiveDate: `Hatályos: 2026. október`,
+        hero: `<strong>A Doughnut Forge helyi, nulla tudású (zero-knowledge) architektúrára épül.</strong> Ez azt jelenti, hogy nem gyűjtjük, nem továbbítjuk és nem tároljuk az adatait, és nem is férünk hozzájuk, kivéve azokat az információkat, amelyeket Ön maga küld el nekünk (lásd a 3. pontot).`,
+        sec1Title: `1. Adattárolás és -törlés`,
+        sec1Desc: `A Doughnut Forge által létrehozott összes titkosítási kulcs, <code class="k1">.vltc2</code> identitás és <code class="k2">.vlt2</code> fájl kizárólag az Ön eszközén tárolódik. Semmilyen információ nem hagyja el az eszközt, hacsak Ön maga nem exportál és oszt meg egy fájlt. Az alkalmazás eltávolítása törli a szoftvert, de nem törli az eszköz más helyein mentett fájlokat, sem a rendszer hitelesítőadat-kezelőjében tárolt kulcsokat (például a macOS Kulcskarikáját vagy a Windows Hitelesítőadat-kezelőjét). Ezeket kézzel törölheti.`,
+        sec2Title: `2. Analitika és telemetria`,
+        sec2Desc: `A Doughnut Forge nem tartalmaz követőszkripteket, analitikai motorokat vagy összeomlás-jelentő eszközöket. Ha az alkalmazást az Apple App Store-ból vagy a Microsoft Store-ból tölti le, az Apple vagy a Microsoft összesített statisztikákat biztosíthat számunkra, például a letöltések számát és az összeomlási statisztikákat. Ezek a jelentések nem tartalmaznak személyazonosításra alkalmas adatokat. A diagnosztikai adatok megosztását az eszköz beállításaiban szabályozhatja.`,
+        sec3Title: `3. Támogatás és kapcsolat`,
+        sec3Desc: `Kérdés esetén vagy technikai probléma bejelentéséhez nyisson jegyet a [[gh]]GitHub Issues[[/gh]] hibakövetőnkben. A GitHub nyilvános platform, amelyre saját adatvédelmi irányelvei vonatkoznak, ezért soha ne adjon meg érzékeny vagy visszafejtett adatokat a bejelentésekben. Adatvédelmi kérdésekkel kérjük, használja [[tally]]kapcsolatfelvételi űrlapunkat[[/tally]]. Az űrlapon keresztül beküldött adatokat a Tally (tally.so) kezeli, amelyet üzenetei fogadására használunk, és kizárólag megkeresése megválaszolására használjuk fel.`,
+        sec4Title: `4. Az irányelvek módosítása`,
+        sec4Desc: `Ezeket az irányelveket időről időre frissíthetjük. A változásokat ezen az oldalon tesszük közzé, frissített hatálybalépési dátummal.`,
+        publisherInfo: `Kiadó: Darren Corbett.`
+      },
+
+      "ro": {
+        title: `Politica de confidențialitate`,
+        effectiveDate: `Data intrării în vigoare: octombrie 2026`,
+        hero: `<strong>Doughnut Forge are la bază o arhitectură locală de tip zero-knowledge.</strong> Aceasta înseamnă că nu colectăm, nu transmitem și nu stocăm datele dvs. și nu avem acces la ele, cu excepția informațiilor pe care alegeți să ni le trimiteți direct (consultați secțiunea 3).`,
+        sec1Title: `1. Stocarea și ștergerea datelor`,
+        sec1Desc: `Toate cheile criptografice, identitățile <code class="k1">.vltc2</code> și fișierele <code class="k2">.vlt2</code> generate de Doughnut Forge sunt stocate exclusiv pe dispozitivul dvs. Nicio informație nu părăsește dispozitivul decât dacă exportați și partajați chiar dvs. un fișier. Dezinstalarea aplicației elimină software-ul, dar nu și fișierele salvate în alte locații de pe dispozitiv sau cheile păstrate în managerul de acreditări al sistemului (de exemplu, Keychain pe macOS sau Credential Manager pe Windows). Le puteți șterge manual.`,
+        sec2Title: `2. Analiză și telemetrie`,
+        sec2Desc: `Doughnut Forge nu conține scripturi de urmărire, motoare de analiză sau instrumente de raportare a blocărilor. Dacă descărcați aplicația din Apple App Store sau Microsoft Store, Apple sau Microsoft ne pot furniza statistici agregate, cum ar fi numărul de descărcări și statistici privind blocările. Aceste rapoarte nu conțin informații de identificare personală. Puteți controla partajarea datelor de diagnosticare din setările dispozitivului.`,
+        sec3Title: `3. Asistență și contact`,
+        sec3Desc: `Pentru întrebări sau pentru a raporta o problemă tehnică, deschideți un tichet în sistemul nostru [[gh]]GitHub Issues[[/gh]]. GitHub este o platformă publică guvernată de propria politică de confidențialitate, așa că nu includeți niciodată date sensibile sau decriptate în rapoarte. Pentru solicitări legate de confidențialitate, folosiți [[tally]]formularul nostru de contact[[/tally]]. Informațiile trimise prin acest formular sunt prelucrate de Tally (tally.so), pe care îl folosim pentru a primi mesajele, și sunt utilizate doar pentru a vă răspunde la solicitare.`,
+        sec4Title: `4. Modificări ale acestei politici`,
+        sec4Desc: `Putem actualiza periodic această politică. Orice modificare va fi publicată pe această pagină, împreună cu o dată actualizată a intrării în vigoare.`,
+        publisherInfo: `Publicat de Darren Corbett.`
+      },
+
+      "ru": {
+        title: `Политика конфиденциальности`,
+        effectiveDate: `Дата вступления в силу: октябрь 2026 г.`,
+        hero: `<strong>Doughnut Forge построен на локальной архитектуре с нулевым разглашением (zero-knowledge).</strong> Это означает, что мы не собираем, не передаём и не храним ваши данные и не имеем к ним доступа, за исключением информации, которую вы сами решите нам отправить (см. раздел 3).`,
+        sec1Title: `1. Хранение и удаление данных`,
+        sec1Desc: `Все криптографические ключи, удостоверения <code class="k1">.vltc2</code> и файлы <code class="k2">.vlt2</code>, создаваемые Doughnut Forge, хранятся исключительно на вашем устройстве. Никакая информация не покидает устройство, если вы сами не экспортируете файл и не поделитесь им. При удалении приложения удаляется само программное обеспечение, но не файлы, сохранённые вами в других местах на устройстве, и не ключи, хранящиеся в системном диспетчере учётных данных (например, в Связке ключей macOS или Диспетчере учётных данных Windows). Их можно удалить вручную.`,
+        sec2Title: `2. Аналитика и телеметрия`,
+        sec2Desc: `Doughnut Forge не содержит скриптов отслеживания, аналитических систем или средств отправки отчётов о сбоях. Если вы загрузили приложение из Apple App Store или Microsoft Store, Apple или Microsoft могут предоставлять нам обобщённую статистику, например количество загрузок и статистику сбоев. Эти отчёты не содержат персональных данных, позволяющих установить вашу личность. Отправку диагностических данных можно настроить в параметрах устройства.`,
+        sec3Title: `3. Поддержка и связь`,
+        sec3Desc: `Если у вас есть вопросы или вы хотите сообщить о технической проблеме, создайте обращение в нашем трекере [[gh]]GitHub Issues[[/gh]]. GitHub — публичная платформа, на которую распространяется её собственная политика конфиденциальности, поэтому никогда не указывайте в обращениях конфиденциальные или расшифрованные данные. По вопросам конфиденциальности воспользуйтесь нашей [[tally]]формой обратной связи[[/tally]]. Сведения, отправленные через эту форму, обрабатываются сервисом Tally (tally.so), который мы используем для получения сообщений, и используются только для ответа на ваш запрос.`,
+        sec4Title: `4. Изменения настоящей политики`,
+        sec4Desc: `Мы можем время от времени обновлять настоящую политику. Все изменения будут публиковаться на этой странице с обновлённой датой вступления в силу.`,
+        publisherInfo: `Опубликовано: Darren Corbett.`
+      },
+
+      "el": {
+        title: `Πολιτική απορρήτου`,
+        effectiveDate: `Ημερομηνία έναρξης ισχύος: Οκτώβριος 2026`,
+        hero: `<strong>Το Doughnut Forge βασίζεται σε τοπική αρχιτεκτονική μηδενικής γνώσης (zero-knowledge).</strong> Αυτό σημαίνει ότι δεν συλλέγουμε, δεν μεταδίδουμε, δεν αποθηκεύουμε και δεν έχουμε πρόσβαση στα δεδομένα σας, εκτός από τις πληροφορίες που επιλέγετε να μας στείλετε απευθείας (βλ. ενότητα 3).`,
+        sec1Title: `1. Αποθήκευση και διαγραφή δεδομένων`,
+        sec1Desc: `Όλα τα κρυπτογραφικά κλειδιά, οι ταυτότητες <code class="k1">.vltc2</code> και τα αρχεία <code class="k2">.vlt2</code> που δημιουργεί το Doughnut Forge αποθηκεύονται αποκλειστικά στη συσκευή σας. Καμία πληροφορία δεν φεύγει από τη συσκευή σας, εκτός αν εξαγάγετε και κοινοποιήσετε εσείς ένα αρχείο. Η απεγκατάσταση της εφαρμογής αφαιρεί το λογισμικό, αλλά όχι τα αρχεία που έχετε αποθηκεύσει σε άλλα σημεία της συσκευής ή τα κλειδιά που φυλάσσονται στη διαχείριση διαπιστευτηρίων του συστήματος (όπως η Κλειδοθήκη του macOS ή η Διαχείριση διαπιστευτηρίων των Windows). Μπορείτε να τα διαγράψετε χειροκίνητα.`,
+        sec2Title: `2. Αναλυτικά στοιχεία και τηλεμετρία`,
+        sec2Desc: `Το Doughnut Forge δεν περιέχει σενάρια παρακολούθησης, μηχανές ανάλυσης ή εργαλεία αναφοράς σφαλμάτων. Αν κατεβάσετε την εφαρμογή από το Apple App Store ή το Microsoft Store, η Apple ή η Microsoft ενδέχεται να μας παρέχουν συγκεντρωτικά στατιστικά, όπως αριθμό λήψεων και στατιστικά σφαλμάτων. Αυτές οι αναφορές δεν περιέχουν πληροφορίες προσωπικής ταυτοποίησης. Μπορείτε να ελέγξετε την κοινοποίηση διαγνωστικών δεδομένων από τις ρυθμίσεις της συσκευής σας.`,
+        sec3Title: `3. Υποστήριξη και επικοινωνία`,
+        sec3Desc: `Για ερωτήσεις ή για να αναφέρετε ένα τεχνικό πρόβλημα, ανοίξτε ένα αίτημα στο [[gh]]GitHub Issues[[/gh]]. Το GitHub είναι δημόσια πλατφόρμα που διέπεται από τη δική του πολιτική απορρήτου, επομένως μην συμπεριλαμβάνετε ποτέ ευαίσθητα ή αποκρυπτογραφημένα δεδομένα στις αναφορές σας. Για ερωτήματα σχετικά με το απόρρητο, χρησιμοποιήστε τη [[tally]]φόρμα επικοινωνίας[[/tally]] μας. Τις πληροφορίες που υποβάλλετε μέσω της φόρμας τις επεξεργάζεται η Tally (tally.so), την οποία χρησιμοποιούμε για να λαμβάνουμε τα μηνύματά σας, και χρησιμοποιούνται μόνο για την απάντηση στο αίτημά σας.`,
+        sec4Title: `4. Αλλαγές στην παρούσα πολιτική`,
+        sec4Desc: `Ενδέχεται να ενημερώνουμε την παρούσα πολιτική κατά καιρούς. Τυχόν αλλαγές θα δημοσιεύονται σε αυτή τη σελίδα με ενημερωμένη ημερομηνία έναρξης ισχύος.`,
+        publisherInfo: `Δημοσιεύθηκε από τον Darren Corbett.`
+      },
+
+      "uk": {
+        title: `Політика конфіденційності`,
+        effectiveDate: `Дата набрання чинності: жовтень 2026 р.`,
+        hero: `<strong>Doughnut Forge побудовано на локальній архітектурі з нульовим розголошенням (zero-knowledge).</strong> Це означає, що ми не збираємо, не передаємо й не зберігаємо ваші дані та не маємо до них доступу, окрім інформації, яку ви самі вирішите нам надіслати (див. розділ 3).`,
+        sec1Title: `1. Зберігання та видалення даних`,
+        sec1Desc: `Усі криптографічні ключі, ідентичності <code class="k1">.vltc2</code> та файли <code class="k2">.vlt2</code>, створені Doughnut Forge, зберігаються виключно на вашому пристрої. Жодна інформація не залишає пристрій, якщо ви самі не експортуєте файл і не поділитеся ним. Видалення застосунку прибирає саме програмне забезпечення, але не файли, які ви зберегли в інших місцях на пристрої, і не ключі, що зберігаються в системному диспетчері облікових даних (наприклад, у Зв'язці ключів macOS або Диспетчері облікових даних Windows). Їх можна видалити вручну.`,
+        sec2Title: `2. Аналітика та телеметрія`,
+        sec2Desc: `Doughnut Forge не містить скриптів відстеження, аналітичних систем чи засобів надсилання звітів про збої. Якщо ви завантажили застосунок з Apple App Store або Microsoft Store, Apple чи Microsoft можуть надавати нам узагальнену статистику, як-от кількість завантажень і статистику збоїв. Ці звіти не містять інформації, що дає змогу встановити вашу особу. Надсилання діагностичних даних можна налаштувати в параметрах пристрою.`,
+        sec3Title: `3. Підтримка та зв'язок`,
+        sec3Desc: `Якщо у вас є запитання або ви хочете повідомити про технічну проблему, створіть звернення в нашому трекері [[gh]]GitHub Issues[[/gh]]. GitHub — публічна платформа, на яку поширюється її власна політика конфіденційності, тож ніколи не додавайте до звернень конфіденційні чи розшифровані дані. З питань конфіденційності скористайтеся нашою [[tally]]формою зворотного зв'язку[[/tally]]. Відомості, надіслані через цю форму, обробляє сервіс Tally (tally.so), який ми використовуємо для отримання повідомлень, і вони використовуються лише для відповіді на ваш запит.`,
+        sec4Title: `4. Зміни до цієї політики`,
+        sec4Desc: `Ми можемо час від часу оновлювати цю політику. Усі зміни публікуватимуться на цій сторінці з оновленою датою набрання чинності.`,
+        publisherInfo: `Опубліковано: Darren Corbett.`
+      },
+
+      "tr": {
+        title: `Gizlilik Politikası`,
+        effectiveDate: `Yürürlük Tarihi: Ekim 2026`,
+        hero: `<strong>Doughnut Forge, yerel öncelikli ve sıfır bilgi (zero-knowledge) mimarisi üzerine kurulmuştur.</strong> Bu, doğrudan bize göndermeyi seçtiğiniz bilgiler dışında verilerinizi toplamadığımız, iletmediğimiz, saklamadığımız ve verilerinize erişimimiz olmadığı anlamına gelir (bkz. Bölüm 3).`,
+        sec1Title: `1. Veri Depolama ve Silme`,
+        sec1Desc: `Doughnut Forge tarafından oluşturulan tüm şifreleme anahtarları, <code class="k1">.vltc2</code> kimlikleri ve <code class="k2">.vlt2</code> dosyaları yalnızca cihazınızda saklanır. Bir dosyayı kendiniz dışa aktarıp paylaşmadığınız sürece hiçbir bilgi cihazınızdan çıkmaz. Uygulamayı kaldırmak yazılımı siler; ancak cihazınızın başka konumlarına kaydettiğiniz dosyaları veya sistemin kimlik bilgisi yöneticisinde (ör. macOS Anahtar Zinciri veya Windows Kimlik Bilgileri Yöneticisi) tutulan anahtarları silmez. Bunları elle silebilirsiniz.`,
+        sec2Title: `2. Analiz ve Telemetri`,
+        sec2Desc: `Doughnut Forge herhangi bir izleme betiği, analiz motoru veya çökme raporlayıcısı içermez. Uygulamayı Apple App Store veya Microsoft Store'dan indirirseniz Apple veya Microsoft bize indirme sayıları ve çökme istatistikleri gibi toplu istatistikler sağlayabilir. Bu raporlar kişisel olarak tanımlanabilir bilgi içermez. Tanılama verilerinin paylaşımını cihazınızın ayarlarından yönetebilirsiniz.`,
+        sec3Title: `3. Destek ve İletişim`,
+        sec3Desc: `Sorularınız için veya teknik bir sorunu bildirmek için [[gh]]GitHub Issues[[/gh]] takip sistemimizde bir kayıt açın. GitHub, kendi gizlilik politikasına tabi, herkese açık bir platformdur; bu nedenle bildirimlerinize asla hassas veya şifresi çözülmüş veri eklemeyin. Gizlilikle ilgili talepleriniz için [[tally]]iletişim formumuzu[[/tally]] kullanın. Bu form aracılığıyla gönderdiğiniz bilgiler, mesajlarınızı almak için kullandığımız Tally (tally.so) tarafından işlenir ve yalnızca talebinizi yanıtlamak için kullanılır.`,
+        sec4Title: `4. Bu Politikadaki Değişiklikler`,
+        sec4Desc: `Bu politikayı zaman zaman güncelleyebiliriz. Tüm değişiklikler, güncellenmiş bir yürürlük tarihiyle bu sayfada yayımlanır.`,
+        publisherInfo: `Yayınlayan: Darren Corbett.`
+      },
+
       "ko": {
-        title: "개인정보 처리방침",
-        effectiveDate: "시행일: 2026년 9월",
-        hero: "<strong>Doughnut Forge는 영지식 아키텍처를 기반으로 구축되었습니다.</strong> 당사는 귀하의 데이터를 수집하지 않습니다.",
-        sec1Title: "1. 데이터 저장 및 삭제",
-        sec1Desc: '모든 암호화 키는 로컬 시스템에만 배타적으로 저장됩니다. 애플리케이션을 제거하여 데이터를 완전히 삭제할 수 있습니다.',
-        sec2Title: "2. 원격 측정",
-        sec2Desc: "당사는 귀하의 사용을 모니터링하지 않습니다.",
-        sec3Title: "3. 지원",
-        sec3Desc: '<a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues</a> 에 티켓을 제출해 주시거나 darrentcorbett@gmail.com 으로 문의해 주십시오.',
-        publisherInfo: "발행인: Darren Corbett"
+        title: `개인정보 처리방침`,
+        effectiveDate: `시행일: 2026년 10월`,
+        hero: `<strong>Doughnut Forge는 영지식(zero-knowledge), 로컬 우선 아키텍처를 기반으로 합니다.</strong> 즉, 사용자가 직접 보내기로 선택한 정보를 제외하고는 사용자의 데이터를 수집, 전송, 저장하거나 이에 접근하지 않습니다(3항 참조).`,
+        sec1Title: `1. 데이터 저장 및 삭제`,
+        sec1Desc: `Doughnut Forge가 생성하는 모든 암호화 키, <code class="k1">.vltc2</code> ID, <code class="k2">.vlt2</code> 파일은 사용자의 기기에만 저장됩니다. 사용자가 직접 파일을 내보내 공유하지 않는 한 어떤 정보도 기기 밖으로 전송되지 않습니다. 앱을 제거하면 소프트웨어는 삭제되지만, 기기의 다른 위치에 저장한 파일이나 시스템 자격 증명 관리자(예: macOS 키체인 또는 Windows 자격 증명 관리자)에 보관된 키는 삭제되지 않습니다. 이러한 항목은 직접 삭제할 수 있습니다.`,
+        sec2Title: `2. 분석 및 원격 측정`,
+        sec2Desc: `Doughnut Forge에는 추적 스크립트, 분석 엔진, 충돌 보고 도구가 포함되어 있지 않습니다. Apple App Store 또는 Microsoft Store에서 앱을 다운로드한 경우, Apple 또는 Microsoft가 다운로드 수 및 충돌 통계와 같은 집계 통계를 당사에 제공할 수 있습니다. 이러한 보고서에는 개인을 식별할 수 있는 정보가 포함되지 않습니다. 진단 데이터 공유는 기기 설정에서 관리할 수 있습니다.`,
+        sec3Title: `3. 지원 및 문의`,
+        sec3Desc: `질문이 있거나 기술적 문제를 신고하려면 [[gh]]GitHub Issues[[/gh]]에 티켓을 등록해 주세요. GitHub는 자체 개인정보 처리방침이 적용되는 공개 플랫폼이므로, 신고 내용에 민감한 정보나 복호화된 데이터를 절대 포함하지 마세요. 개인정보 관련 문의는 [[tally]]문의 양식[[/tally]]을 이용해 주세요. 이 양식으로 제출한 정보는 메시지 수신을 위해 당사가 사용하는 Tally(tally.so)에서 처리되며, 문의에 답변하는 용도로만 사용됩니다.`,
+        sec4Title: `4. 방침 변경`,
+        sec4Desc: `당사는 이 방침을 수시로 업데이트할 수 있습니다. 변경 사항은 업데이트된 시행일과 함께 이 페이지에 게시됩니다.`,
+        publisherInfo: `발행인: Darren Corbett`
       },
+
       "hi": {
-        title: "गोपनीयता नीति",
-        effectiveDate: "प्रभावी तिथि: सितंबर 2026",
-        hero: "<strong>Doughnut Forge शून्य-ज्ञान (zero-knowledge), स्थानीय-प्रथम आर्किटेक्चर पर बनाया गया है।</strong> इसका अर्थ है कि हम आपका डेटा एकत्र, प्रसारित, संग्रहीत या उस तक पहुंच नहीं रखते हैं।",
-        sec1Title: "1. डेटा भंडारण और विलोपन",
-        sec1Desc: 'सभी क्रिप्टोग्राफ़िक कुंजियाँ, <code class="bg-slate-100 text-[#F91880] px-2 py-0.5 rounded font-bold text-sm">.vltc2</code> पहचानें और <code class="bg-slate-100 text-[#1DA1F2] px-2 py-0.5 rounded font-bold text-sm">.vlt2</code> फ़ाइलें विशेष रूप से आपके स्थानीय डिवाइस पर संग्रहीत की जाती हैं। कोई भी डेटा सर्वर पर नहीं रखा जाता है। आप अपने Mac से ऐप को अनइंस्टॉल करके अपने स्थानीय डेटा को पूरी तरह से हटा सकते हैं।',
-        sec2Title: "2. एनालिटिक्स और टेलीमेट्री",
-        sec2Desc: "Doughnut Forge में कोई ट्रैकिंग स्क्रिप्ट या एनालिटिक्स नहीं है। हम आपके उपयोग की निगरानी नहीं करते हैं।",
-        sec3Title: "3. सहायता और संपर्क",
-        sec3Desc: 'प्रश्नों के लिए <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues</a> पर टिकट खोलें या darrentcorbett@gmail.com पर Darren Corbett से संपर्क करें।',
-        publisherInfo: "प्रकाशक: Darren Corbett."
+        title: `गोपनीयता नीति`,
+        effectiveDate: `प्रभावी तिथि: अक्टूबर 2026`,
+        hero: `<strong>Doughnut Forge एक ज़ीरो-नॉलेज (zero-knowledge), लोकल-फ़र्स्ट आर्किटेक्चर पर बना है।</strong> इसका अर्थ है कि आप जो जानकारी स्वयं हमें भेजना चुनते हैं, उसके अलावा हम आपका डेटा न तो एकत्र करते हैं, न भेजते हैं, न संग्रहीत करते हैं, और न ही उस तक हमारी कोई पहुँच होती है (अनुभाग 3 देखें)।`,
+        sec1Title: `1. डेटा संग्रहण और हटाना`,
+        sec1Desc: `Doughnut Forge द्वारा बनाई गई सभी क्रिप्टोग्राफ़िक कुंजियाँ, <code class="k1">.vltc2</code> पहचानें और <code class="k2">.vlt2</code> फ़ाइलें केवल आपके डिवाइस पर संग्रहीत होती हैं। जब तक आप स्वयं कोई फ़ाइल एक्सपोर्ट करके साझा नहीं करते, कोई भी जानकारी आपके डिवाइस से बाहर नहीं जाती। ऐप को अनइंस्टॉल करने से सॉफ़्टवेयर हट जाता है, लेकिन डिवाइस पर अन्य स्थानों पर सहेजी गई आपकी फ़ाइलें या सिस्टम के क्रेडेंशियल मैनेजर (जैसे macOS कीचेन या Windows क्रेडेंशियल मैनेजर) में रखी कुंजियाँ नहीं हटतीं। आप इन्हें मैन्युअल रूप से हटा सकते हैं।`,
+        sec2Title: `2. एनालिटिक्स और टेलीमेट्री`,
+        sec2Desc: `Doughnut Forge में कोई ट्रैकिंग स्क्रिप्ट, एनालिटिक्स इंजन या क्रैश रिपोर्टर नहीं है। यदि आप ऐप को Apple App Store या Microsoft Store से डाउनलोड करते हैं, तो Apple या Microsoft हमें डाउनलोड की संख्या और क्रैश आँकड़ों जैसे समेकित आँकड़े उपलब्ध करा सकते हैं। इन रिपोर्टों में व्यक्तिगत रूप से पहचान योग्य कोई जानकारी नहीं होती। आप अपने डिवाइस की सेटिंग्स में डायग्नोस्टिक डेटा साझा करने को नियंत्रित कर सकते हैं।`,
+        sec3Title: `3. सहायता और संपर्क`,
+        sec3Desc: `प्रश्नों के लिए या किसी तकनीकी समस्या की रिपोर्ट करने के लिए, कृपया हमारे [[gh]]GitHub Issues[[/gh]] ट्रैकर पर टिकट खोलें। GitHub एक सार्वजनिक प्लेटफ़ॉर्म है जिस पर उसकी अपनी गोपनीयता नीति लागू होती है, इसलिए अपनी रिपोर्ट में कभी भी संवेदनशील या डिक्रिप्ट किया गया डेटा शामिल न करें। गोपनीयता से जुड़े प्रश्नों के लिए, कृपया हमारे [[tally]]संपर्क फ़ॉर्म[[/tally]] का उपयोग करें। इस फ़ॉर्म के माध्यम से भेजी गई जानकारी को Tally (tally.so) द्वारा संसाधित किया जाता है, जिसका उपयोग हम आपका संदेश प्राप्त करने के लिए करते हैं, और इसका उपयोग केवल आपके प्रश्न का उत्तर देने के लिए किया जाता है।`,
+        sec4Title: `4. इस नीति में परिवर्तन`,
+        sec4Desc: `हम समय-समय पर इस नीति को अपडेट कर सकते हैं। सभी परिवर्तन अपडेट की गई प्रभावी तिथि के साथ इस पृष्ठ पर प्रकाशित किए जाएँगे।`,
+        publisherInfo: `प्रकाशक: Darren Corbett.`
       },
+
       "id": {
-        title: "Kebijakan Privasi",
-        effectiveDate: "Tanggal Berlaku: September 2026",
-        hero: "<strong>Doughnut Forge dibangun di atas arsitektur zero-knowledge dan local-first.</strong> Ini berarti kami tidak mengumpulkan, mengirimkan, menyimpan, atau memiliki akses ke data Anda.",
-        sec1Title: "1. Penyimpanan & Penghapusan Data",
-        sec1Desc: 'Semua kunci kriptografi, identitas <code class="bg-slate-100 text-[#F91880] px-2 py-0.5 rounded font-bold text-sm">.vltc2</code>, dan file <code class="bg-slate-100 text-[#1DA1F2] px-2 py-0.5 rounded font-bold text-sm">.vlt2</code> disimpan secara eksklusif di perangkat lokal Anda. Tidak ada data yang disimpan di server mana pun. Anda dapat menghapus data lokal sepenuhnya dengan mencopot pemasangan aplikasi dari Mac Anda.',
-        sec2Title: "2. Analitik dan Telemetri",
-        sec2Desc: "Doughnut Forge tidak mengandung skrip pelacakan atau pelapor kerusakan. Kami tidak memantau penggunaan atau perilaku Anda.",
-        sec3Title: "3. Dukungan & Kontak",
-        sec3Desc: 'Jika Anda memiliki pertanyaan, buka tiket di <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues</a> atau hubungi Darren Corbett langsung di darrentcorbett@gmail.com.',
-        publisherInfo: "Diterbitkan oleh Darren Corbett."
+        title: `Kebijakan Privasi`,
+        effectiveDate: `Tanggal Berlaku: Oktober 2026`,
+        hero: `<strong>Doughnut Forge dibangun di atas arsitektur lokal tanpa pengetahuan (zero-knowledge).</strong> Artinya, kami tidak mengumpulkan, mengirimkan, menyimpan, atau memiliki akses ke data Anda, kecuali informasi yang Anda pilih untuk dikirimkan langsung kepada kami (lihat Bagian 3).`,
+        sec1Title: `1. Penyimpanan &amp; Penghapusan Data`,
+        sec1Desc: `Semua kunci kriptografi, identitas <code class="k1">.vltc2</code>, dan file <code class="k2">.vlt2</code> yang dibuat oleh Doughnut Forge hanya disimpan di perangkat Anda. Tidak ada informasi yang keluar dari perangkat Anda kecuali Anda sendiri mengekspor dan membagikan file. Mencopot pemasangan aplikasi akan menghapus perangkat lunaknya, tetapi tidak menghapus file yang Anda simpan di lokasi lain pada perangkat atau kunci yang disimpan di pengelola kredensial sistem (seperti Keychain di macOS atau Credential Manager di Windows). Anda dapat menghapusnya secara manual.`,
+        sec2Title: `2. Analitik dan Telemetri`,
+        sec2Desc: `Doughnut Forge tidak berisi skrip pelacakan, mesin analitik, atau pelapor kerusakan. Jika Anda mengunduh aplikasi dari Apple App Store atau Microsoft Store, Apple atau Microsoft dapat memberikan statistik gabungan kepada kami, seperti jumlah unduhan dan statistik kerusakan. Laporan ini tidak berisi informasi yang dapat mengidentifikasi Anda secara pribadi. Anda dapat mengatur pembagian data diagnostik di pengaturan perangkat Anda.`,
+        sec3Title: `3. Dukungan &amp; Kontak`,
+        sec3Desc: `Untuk pertanyaan atau melaporkan masalah teknis, silakan buka tiket di pelacak [[gh]]GitHub Issues[[/gh]] kami. GitHub adalah platform publik yang diatur oleh kebijakan privasinya sendiri, jadi jangan pernah menyertakan data sensitif atau data yang telah didekripsi dalam laporan Anda. Untuk pertanyaan terkait privasi, silakan gunakan [[tally]]Formulir Kontak[[/tally]] kami. Informasi yang Anda kirimkan melalui formulir tersebut diproses oleh Tally (tally.so), yang kami gunakan untuk menerima pesan Anda, dan hanya digunakan untuk menanggapi pertanyaan Anda.`,
+        sec4Title: `4. Perubahan pada Kebijakan Ini`,
+        sec4Desc: `Kami dapat memperbarui kebijakan ini dari waktu ke waktu. Setiap perubahan akan dipublikasikan di halaman ini dengan Tanggal Berlaku yang diperbarui.`,
+        publisherInfo: `Diterbitkan oleh Darren Corbett.`
       },
+
       "ms": {
-        title: "Dasar Privasi",
-        effectiveDate: "Tarikh Kuat Kuasa: September 2026",
-        hero: "<strong>Doughnut Forge dibina atas seni bina sifar pengetahuan (zero-knowledge) dan tempatan dahulu (local-first).</strong> Ini bermakna kami tidak mengumpul, menghantar, menyimpan atau mengakses data anda.",
-        sec1Title: "1. Penyimpanan & Pemadaman Data",
-        sec1Desc: 'Semua kunci kriptografi, identiti <code class="bg-slate-100 text-[#F91880] px-2 py-0.5 rounded font-bold text-sm">.vltc2</code> dan fail <code class="bg-slate-100 text-[#1DA1F2] px-2 py-0.5 rounded font-bold text-sm">.vlt2</code> disimpan secara eksklusif pada peranti tempatan anda. Tiada data disimpan pada mana-mana pelayan. Anda boleh memadamkan data tempatan sepenuhnya dengan menyahpasang aplikasi daripada Mac anda.',
-        sec2Title: "2. Analisis dan Telemetri",
-        sec2Desc: "Doughnut Forge tidak mengandungi skrip penjejakan. Kami tidak memantau penggunaan anda.",
-        sec3Title: "3. Sokongan & Hubungan",
-        sec3Desc: 'Sila buka tiket di <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues</a> atau hubungi Darren Corbett di darrentcorbett@gmail.com.',
-        publisherInfo: "Diterbitkan oleh Darren Corbett."
+        title: `Dasar Privasi`,
+        effectiveDate: `Tarikh Berkuat Kuasa: Oktober 2026`,
+        hero: `<strong>Doughnut Forge dibina berasaskan seni bina setempat tanpa pengetahuan (zero-knowledge).</strong> Ini bermakna kami tidak mengumpul, menghantar, menyimpan atau mempunyai sebarang akses kepada data anda, kecuali maklumat yang anda pilih untuk dihantar terus kepada kami (lihat Bahagian 3).`,
+        sec1Title: `1. Penyimpanan &amp; Pemadaman Data`,
+        sec1Desc: `Semua kunci kriptografi, identiti <code class="k1">.vltc2</code> dan fail <code class="k2">.vlt2</code> yang dijana oleh Doughnut Forge disimpan secara eksklusif pada peranti anda. Tiada maklumat yang meninggalkan peranti anda melainkan anda sendiri mengeksport dan berkongsi fail. Menyahpasang aplikasi akan membuang perisian tersebut, tetapi tidak membuang fail yang telah anda simpan di lokasi lain pada peranti atau kunci yang disimpan dalam pengurus kelayakan sistem (seperti Keychain macOS atau Credential Manager Windows). Anda boleh memadamnya secara manual.`,
+        sec2Title: `2. Analitik dan Telemetri`,
+        sec2Desc: `Doughnut Forge tidak mengandungi skrip penjejakan, enjin analitik atau pelapor ranap. Jika anda memuat turun aplikasi daripada Apple App Store atau Microsoft Store, Apple atau Microsoft mungkin memberikan kami statistik agregat, seperti bilangan muat turun dan statistik ranap. Laporan ini tidak mengandungi maklumat yang boleh mengenal pasti diri anda. Anda boleh mengawal perkongsian data diagnostik dalam tetapan peranti anda.`,
+        sec3Title: `3. Sokongan &amp; Hubungan`,
+        sec3Desc: `Untuk pertanyaan atau untuk melaporkan isu teknikal, sila buka tiket di penjejak [[gh]]GitHub Issues[[/gh]] kami. GitHub ialah platform awam yang tertakluk kepada dasar privasinya sendiri, jadi jangan sekali-kali sertakan data sensitif atau data yang telah dinyahsulit dalam laporan anda. Untuk pertanyaan berkaitan privasi, sila gunakan [[tally]]Borang Hubungan[[/tally]] kami. Maklumat yang anda hantar melalui borang tersebut diproses oleh Tally (tally.so), yang kami gunakan untuk menerima mesej anda, dan hanya digunakan untuk menjawab pertanyaan anda.`,
+        sec4Title: `4. Perubahan pada Dasar Ini`,
+        sec4Desc: `Kami mungkin mengemas kini dasar ini dari semasa ke semasa. Sebarang perubahan akan diterbitkan di halaman ini dengan Tarikh Berkuat Kuasa yang dikemas kini.`,
+        publisherInfo: `Diterbitkan oleh Darren Corbett.`
       },
+
       "th": {
-        title: "นโยบายความเป็นส่วนตัว",
-        effectiveDate: "วันที่มีผลบังคับใช้: กันยายน 2569",
-        hero: "<strong>Doughnut Forge สร้างขึ้นบนสถาปัตยกรรมแบบ zero-knowledge และเน้นการทำงานภายในอุปกรณ์ (local-first)</strong> ซึ่งหมายความว่าเราไม่มีการเก็บรวบรวม ส่งต่อ จัดเก็บ หรือเข้าถึงข้อมูลของคุณ",
-        sec1Title: "1. การจัดเก็บและการลบข้อมูล",
-        sec1Desc: 'คีย์การเข้ารหัสทั้งหมด ข้อมูลระบุตัวตน <code class="bg-slate-100 text-[#F91880] px-2 py-0.5 rounded font-bold text-sm">.vltc2</code> และไฟล์ <code class="bg-slate-100 text-[#1DA1F2] px-2 py-0.5 rounded font-bold text-sm">.vlt2</code> จะถูกจัดเก็บไว้ในเครื่องของคุณเท่านั้น ไม่มีข้อมูลถูกเก็บไว้บนเซิร์ฟเวอร์ใดๆ คุณสามารถลบข้อมูลทั้งหมดได้โดยการถอนการติดตั้งแอปพลิเคชันออกจาก Mac ของคุณ',
-        sec2Title: "2. การวิเคราะห์ข้อมูลและการวัดและส่งข้อมูลทางไกล",
-        sec2Desc: "Doughnut Forge ไม่มีสคริปต์ติดตามหรือรายงานข้อขัดข้อง เราไม่มีการตรวจสอบการใช้งานของคุณ",
-        sec3Title: "3. การสนับสนุนและการติดต่อ",
-        sec3Desc: 'หากคุณมีคำถาม โปรดเปิดคำร้องที่ <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues</a> หรือติดต่อ Darren Corbett โดยตรงที่ darrentcorbett@gmail.com',
-        publisherInfo: "เผยแพร่โดย Darren Corbett"
+        title: `นโยบายความเป็นส่วนตัว`,
+        effectiveDate: `วันที่มีผลบังคับใช้: ตุลาคม ค.ศ. 2026`,
+        hero: `<strong>Doughnut Forge สร้างขึ้นบนสถาปัตยกรรมแบบ zero-knowledge ที่ทำงานบนอุปกรณ์ของคุณเป็นหลัก</strong> ซึ่งหมายความว่าเราไม่เก็บรวบรวม ไม่ส่งต่อ ไม่จัดเก็บ และไม่มีสิทธิ์เข้าถึงข้อมูลของคุณ ยกเว้นข้อมูลที่คุณเลือกส่งถึงเราโดยตรง (ดูหัวข้อที่ 3)`,
+        sec1Title: `1. การจัดเก็บและการลบข้อมูล`,
+        sec1Desc: `คีย์เข้ารหัส ข้อมูลประจำตัว <code class="k1">.vltc2</code> และไฟล์ <code class="k2">.vlt2</code> ทั้งหมดที่ Doughnut Forge สร้างขึ้น จะจัดเก็บไว้บนอุปกรณ์ของคุณเท่านั้น ไม่มีข้อมูลใดออกจากอุปกรณ์ของคุณ เว้นแต่คุณจะส่งออกและแชร์ไฟล์ด้วยตนเอง การถอนการติดตั้งแอปจะลบซอฟต์แวร์ออก แต่จะไม่ลบไฟล์ที่คุณบันทึกไว้ในตำแหน่งอื่นบนอุปกรณ์ หรือคีย์ที่เก็บไว้ในตัวจัดการข้อมูลรับรองของระบบ (เช่น พวงกุญแจของ macOS หรือ Credential Manager ของ Windows) คุณสามารถลบรายการเหล่านี้ได้ด้วยตนเอง`,
+        sec2Title: `2. การวิเคราะห์และการวัดและส่งข้อมูลทางไกล`,
+        sec2Desc: `Doughnut Forge ไม่มีสคริปต์ติดตาม เครื่องมือวิเคราะห์ หรือเครื่องมือรายงานข้อขัดข้อง หากคุณดาวน์โหลดแอปจาก Apple App Store หรือ Microsoft Store ทาง Apple หรือ Microsoft อาจให้สถิติแบบรวมแก่เรา เช่น จำนวนการดาวน์โหลดและสถิติข้อขัดข้อง รายงานเหล่านี้ไม่มีข้อมูลที่ระบุตัวบุคคลได้ คุณสามารถควบคุมการแชร์ข้อมูลการวินิจฉัยได้ในการตั้งค่าอุปกรณ์`,
+        sec3Title: `3. การสนับสนุนและการติดต่อ`,
+        sec3Desc: `หากมีคำถามหรือต้องการรายงานปัญหาทางเทคนิค โปรดเปิดทิกเก็ตใน [[gh]]GitHub Issues[[/gh]] ของเรา GitHub เป็นแพลตฟอร์มสาธารณะที่อยู่ภายใต้นโยบายความเป็นส่วนตัวของตนเอง ดังนั้นโปรดอย่าใส่ข้อมูลที่ละเอียดอ่อนหรือข้อมูลที่ถอดรหัสแล้วในรายงานของคุณ สำหรับคำถามเกี่ยวกับความเป็นส่วนตัว โปรดใช้ [[tally]]แบบฟอร์มติดต่อ[[/tally]] ของเรา ข้อมูลที่คุณส่งผ่านแบบฟอร์มดังกล่าวจะได้รับการประมวลผลโดย Tally (tally.so) ซึ่งเราใช้รับข้อความของคุณ และจะใช้เพื่อตอบคำถามของคุณเท่านั้น`,
+        sec4Title: `4. การเปลี่ยนแปลงนโยบายนี้`,
+        sec4Desc: `เราอาจปรับปรุงนโยบายนี้เป็นครั้งคราว การเปลี่ยนแปลงใด ๆ จะเผยแพร่ในหน้านี้พร้อมวันที่มีผลบังคับใช้ที่อัปเดตแล้ว`,
+        publisherInfo: `เผยแพร่โดย Darren Corbett`
       },
+
       "vi": {
-        title: "Chính sách Bảo mật",
-        effectiveDate: "Ngày có hiệu lực: Tháng 9 năm 2026",
-        hero: "<strong>Doughnut Forge được xây dựng trên kiến trúc zero-knowledge và ưu tiên cục bộ (local-first).</strong> Điều này có nghĩa là chúng tôi không thu thập, truyền tải, lưu trữ hoặc có quyền truy cập vào dữ liệu của bạn.",
-        sec1Title: "1. Lưu trữ và Xóa dữ liệu",
-        sec1Desc: 'Tất cả các khóa mã hóa, danh tính <code class="bg-slate-100 text-[#F91880] px-2 py-0.5 rounded font-bold text-sm">.vltc2</code> và tệp <code class="bg-slate-100 text-[#1DA1F2] px-2 py-0.5 rounded font-bold text-sm">.vlt2</code> chỉ được lưu trữ trên máy cục bộ của bạn. Không có dữ liệu nào được giữ lại trên máy chủ. Bạn có thể xóa hoàn toàn dữ liệu cục bộ bằng cách gỡ cài đặt ứng dụng khỏi máy Mac của mình.',
-        sec2Title: "2. Phân tích và Đo từ xa",
-        sec2Desc: "Doughnut Forge không chứa tập lệnh theo dõi. Chúng tôi không giám sát việc sử dụng của bạn.",
-        sec3Title: "3. Hỗ trợ & Liên hệ",
-        sec3Desc: 'Vui lòng mở yêu cầu trên <a href="https://github.com/Darren-Corbett/forge-privacy/issues" class="text-[#1DA1F2] hover:underline font-bold">GitHub Issues</a> hoặc liên hệ trực tiếp với Darren Corbett tại darrentcorbett@gmail.com.',
-        publisherInfo: "Xuất bản bởi Darren Corbett."
+        title: `Chính sách quyền riêng tư`,
+        effectiveDate: `Ngày có hiệu lực: Tháng 10 năm 2026`,
+        hero: `<strong>Doughnut Forge được xây dựng trên kiến trúc cục bộ không tiết lộ thông tin (zero-knowledge).</strong> Điều này có nghĩa là chúng tôi không thu thập, truyền tải, lưu trữ hoặc có quyền truy cập vào dữ liệu của bạn, ngoại trừ thông tin bạn chủ động gửi trực tiếp cho chúng tôi (xem Mục 3).`,
+        sec1Title: `1. Lưu trữ và xóa dữ liệu`,
+        sec1Desc: `Tất cả khóa mã hóa, danh tính <code class="k1">.vltc2</code> và tệp <code class="k2">.vlt2</code> do Doughnut Forge tạo ra chỉ được lưu trữ trên thiết bị của bạn. Không có thông tin nào rời khỏi thiết bị trừ khi chính bạn xuất và chia sẻ tệp. Việc gỡ cài đặt ứng dụng sẽ xóa phần mềm, nhưng không xóa các tệp bạn đã lưu ở vị trí khác trên thiết bị hoặc các khóa được lưu trong trình quản lý thông tin xác thực của hệ thống (chẳng hạn như Chuỗi khóa trên macOS hoặc Credential Manager trên Windows). Bạn có thể xóa chúng theo cách thủ công.`,
+        sec2Title: `2. Phân tích và đo từ xa`,
+        sec2Desc: `Doughnut Forge không chứa tập lệnh theo dõi, công cụ phân tích hay trình báo cáo sự cố. Nếu bạn tải ứng dụng từ Apple App Store hoặc Microsoft Store, Apple hoặc Microsoft có thể cung cấp cho chúng tôi số liệu thống kê tổng hợp, chẳng hạn như số lượt tải xuống và thống kê sự cố. Các báo cáo này không chứa thông tin nhận dạng cá nhân. Bạn có thể kiểm soát việc chia sẻ dữ liệu chẩn đoán trong phần cài đặt của thiết bị.`,
+        sec3Title: `3. Hỗ trợ và liên hệ`,
+        sec3Desc: `Nếu có câu hỏi hoặc muốn báo cáo sự cố kỹ thuật, vui lòng tạo phiếu yêu cầu trên [[gh]]GitHub Issues[[/gh]] của chúng tôi. GitHub là nền tảng công khai tuân theo chính sách quyền riêng tư riêng, vì vậy đừng bao giờ đưa dữ liệu nhạy cảm hoặc dữ liệu đã giải mã vào báo cáo. Đối với các yêu cầu liên quan đến quyền riêng tư, vui lòng sử dụng [[tally]]Biểu mẫu liên hệ[[/tally]] của chúng tôi. Thông tin bạn gửi qua biểu mẫu đó được xử lý bởi Tally (tally.so), dịch vụ chúng tôi dùng để nhận tin nhắn, và chỉ được dùng để phản hồi yêu cầu của bạn.`,
+        sec4Title: `4. Thay đổi đối với chính sách này`,
+        sec4Desc: `Chúng tôi có thể cập nhật chính sách này theo thời gian. Mọi thay đổi sẽ được công bố trên trang này kèm Ngày có hiệu lực được cập nhật.`,
+        publisherInfo: `Xuất bản bởi Darren Corbett.`
       }
     };
+
+    // Resolution order: ?lang= query, exact browser locale, Chinese/Portuguese variants, base language, English.
+    function resolveLang() {
+      const q = new URLSearchParams(window.location.search).get("lang");
+      if (q && TRANSLATIONS[q]) return q;
+
+      const nav = navigator.language || "en";
+      if (TRANSLATIONS[nav]) return nav;
+
+      const base = nav.split("-")[0];
+      if (base === "zh") return /Hant|TW|HK|MO/i.test(nav) ? "zh-TW" : "zh-CN";
+      if (base === "pt") return "pt-BR";
+      if (base === "nb" || base === "nn") return "no";
+      if (TRANSLATIONS[base]) return base;
+      return "en";
+    }
 
     function setLanguage(lang) {
       const selected = TRANSLATIONS[lang] ? lang : "en";
@@ -360,35 +669,15 @@
 
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
-        if (strings[key]) el.innerHTML = strings[key];
+        const text = strings[key] ?? enStrings[key];
+        if (text) el.innerHTML = render(text);
       });
 
       document.getElementById("langSelect").value = selected;
       document.documentElement.lang = selected;
     }
 
-    // Auto-detect resolution order: 
-    // 1. URL Query Param (e.g. ?lang=ja)
-    // 2. Full Browser Locale (e.g. en-US, pt-BR)
-    // 3. Short Browser Locale (e.g. fr, de)
-    // 4. Default Fallback (en)
-    const urlParams = new URLSearchParams(window.location.search);
-    const queryLang = urlParams.get("lang");
-
-    const fullBrowserLang = navigator.language;
-    const shortBrowserLang = fullBrowserLang.split('-')[0];
-
-    let initialLang = "en";
-    if (queryLang && TRANSLATIONS[queryLang]) {
-      initialLang = queryLang;
-    } else if (TRANSLATIONS[fullBrowserLang]) {
-      initialLang = fullBrowserLang;
-    } else if (TRANSLATIONS[shortBrowserLang]) {
-      initialLang = shortBrowserLang;
-    }
-
-    setLanguage(initialLang);
+    setLanguage(resolveLang());
   </script>
 </body>
-
 </html>
